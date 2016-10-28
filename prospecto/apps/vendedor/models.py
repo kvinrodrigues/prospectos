@@ -1,3 +1,6 @@
 from django.db import models
 
-# Create your models here.
+class Vendedor (models.Model):
+    idVendedor = models.IntegerField()
+    nombreVendedor = models.CharField(max(80))
+    telefonoVendedor = models.IntegerField()

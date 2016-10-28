@@ -1,3 +1,8 @@
 from django.db import models
 
-# Create your models here.
+class Articulo (models.Model):
+    idArticulo = models.IntegerField()
+    descripcionArticulo = models.TextField()
+    tipoArticulo = models.CharField()
+    montoArticulo = models.IntegerField()
+    disponibilidad = models.IntegerField()
