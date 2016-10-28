@@ -1,8 +1,8 @@
 from django.db import models
-from usuarios.models import Usuarios
+from apps.usuarios.models import Usuarios
 
 class Rol (models.Model):
     usuario = models.OneToOneField(Usuarios)
     idRol = models.IntegerField()
     descripcionRol = models.TextField()
-    tipoRol = models.CharField()
+    tipoRol = models.CharField(max_length=15)
