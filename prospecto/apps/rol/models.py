@@ -6,3 +6,5 @@ class Rol (models.Model):
     idRol = models.IntegerField()
     descripcionRol = models.TextField()
     tipoRol = models.CharField(max_length=15)
+    def __str__(self):
+        return self.descripcionRol

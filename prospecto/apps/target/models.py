@@ -7,3 +7,7 @@ class Target (models.Model):
     telefonoTarget = models.IntegerField()
     origenTarget = models.CharField(max_length=80)
     estadoTarget = models.BooleanField()
+    def __str__(self):
+        return self.nombreTarget
+
+
