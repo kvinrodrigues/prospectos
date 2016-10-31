@@ -1,8 +1,8 @@
 from django.db import models
 
 # Create your models here.
-from apps.supervisor.models import Supervisor
-from apps.vendedor.models import Vendedor
+
+
 
 
 class Usuarios(models.Model):
