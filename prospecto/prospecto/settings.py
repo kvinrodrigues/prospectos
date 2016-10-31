@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'apps.target_contact',
     'apps.usuarios',
     'apps.vendedor',
+    'apps.inicio'
 
 )
 
@@ -65,7 +66,7 @@ ROOT_URLCONF = 'prospecto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

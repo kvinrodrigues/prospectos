@@ -18,4 +18,15 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'', include('apps.inicio.urls')),
+    url(r'^inicio/', include('apps.inicio.urls', namespace='inicio')),
+    url(r'^usuarios/', include('apps.usuarios.urls', namespace='usuarios')),
+    url(r'^target/', include('apps.target.urls', namespace='target')),
+    url(r'^articulo/', include('apps.articulo.urls', namespace='articulo')),
+    url(r'^campanha/', include('apps.campanha.urls', namespace='campanha')),
+    url(r'^history/', include('apps.history.urls', namespace='history')),
+    url(r'^rol/', include('apps.rol.urls', namespace='rol')),
+    url(r'^supervisor/', include('apps.supervisor.urls', namespace='supervisor')),
+    url(r'^target_contact/', include('apps.target_contact.urls', namespace='target_contact')),
+    url(r'^vendedor/', include('apps.vendedor.urls', namespace='vendedor')),
 ]
