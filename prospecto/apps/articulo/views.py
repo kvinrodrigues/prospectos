@@ -1,3 +1,4 @@
 from django.shortcuts import render
-
-# Create your views here.
+from .models import Articulo
+def listar_art(request):
+    return render(request, 'articulo/listar_articulos.html', {'Articulo':Articulo})

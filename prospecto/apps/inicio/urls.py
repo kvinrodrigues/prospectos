@@ -11,7 +11,7 @@ urlpatterns = patterns('',
 
 		url(r'^salir/$', views.salir, name='salir'),
 
-	)
+)
 
 
 
