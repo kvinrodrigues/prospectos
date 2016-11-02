@@ -4,8 +4,8 @@ from apps.supervisor.models import Supervisor
 
 
 class Vendedor (models.Model):
+
     vendedor_supervisor = models.ForeignKey(Supervisor,null=True)
-    idVendedor = models.IntegerField()
     nombreVendedor = models.CharField(max_length=80)
     telefonoVendedor = models.IntegerField()
     def __str__(self):

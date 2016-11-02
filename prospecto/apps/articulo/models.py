@@ -1,8 +1,7 @@
 from django.db import models
-
-
 class Articulo (models.Model):
-    idArticulo = models.IntegerField()
+
+
     nombreArticulo=models.TextField(max_length=45,null=True)
     descripcionArticulo = models.TextField(max_length=200,null=True)
     tipoArticulo = models.CharField(max_length=80)
@@ -10,7 +9,12 @@ class Articulo (models.Model):
     disponibilidad = models.IntegerField()
 
 
+
+
+
     def __str__(self):
         return self.descripcionArticulo
+
+
 
 
