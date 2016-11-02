@@ -7,7 +7,7 @@ class Target_Contact (models.Model):
     idTarget_Contact = models.IntegerField()
     Objetivo = models.ForeignKey(Target,null=True)
     Vendedor = models.ForeignKey(Vendedor,null=True)
-    Articulo=models.ManyToManyField(Articulo,null=True)
+    Articulo=models.ManyToManyField(Articulo)
 
     def __str__(self):
         return str(self.idTarget_Contact)

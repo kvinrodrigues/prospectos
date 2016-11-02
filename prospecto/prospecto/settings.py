@@ -46,7 +46,10 @@ INSTALLED_APPS = (
     'apps.target_contact',
     'apps.usuarios',
     'apps.vendedor',
-    'apps.inicio'
+    'apps.inicio',
+    'bootstrap3',
+
+
 
 )
 

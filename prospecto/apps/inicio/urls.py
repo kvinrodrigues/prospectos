@@ -1,17 +1,17 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import  url
 from apps.inicio import views
 
-urlpatterns = patterns('',
+urlpatterns = [
 
-		# ej: inicio/
-		url(r'^$', views.autenticar, name='autenticar'),
+	# ej: inicio/
+	url(r'^$', views.autenticar, name='autenticar'),
 
-		# ej: inicio/menu
-		url(r'^menu/$', views.menu, name='menu'),
+	# ej: inicio/menu
+	url(r'^menu/$', views.menu, name='menu'),
 
-		url(r'^salir/$', views.salir, name='salir'),
+	url(r'^salir/$', views.salir, name='salir')
 
-)
+]
 
 
 

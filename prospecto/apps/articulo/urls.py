@@ -1,8 +1,11 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 from apps.articulo import views
 
-urlpatterns = patterns('',
+urlpatterns = [
+    url(r'^$', views.listar_articulos, name='listar_articulos'),
+    # ej: proyecto/listar_proyectos
+    url(r'^listar_articulos/', views.listar_articulos, name='listar_articulos'),
+    # ej: articulo/crear_articulo
+    url(r'^crear_articulos/', views.crear_articulo, name='crear_articulos')]
 
-		url(r'^$', views.listar_art, name='listar_art'),
 
-)
