@@ -1,19 +1,11 @@
 from django.db import models
 class Articulo (models.Model):
-
-
-    nombreArticulo=models.TextField(max_length=45,null=True)
-    descripcionArticulo = models.TextField(max_length=200,null=True)
-    tipoArticulo = models.CharField(max_length=80)
+    nombreArticulo=models.TextField(max_length=45, null=True)
+    tipoArticulo = models.CharField(max_length=80, null=True)
     montoArticulo = models.IntegerField()
     disponibilidad = models.IntegerField()
-
-
-
-
-
     def __str__(self):
-        return self.descripcionArticulo
+        return self.nombreArticulo
 
 
 

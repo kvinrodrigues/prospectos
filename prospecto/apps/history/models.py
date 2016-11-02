@@ -2,7 +2,6 @@ from django.db import models
 from apps.target_contact.models import Target_Contact
 # Create your models here.
 class History (models.Model):
-    idHistory = models.IntegerField()
     descripcionHistorial=models.TextField(max_length=200,null=True)
     fechaHistorial=models.DateField(null=True)
 
