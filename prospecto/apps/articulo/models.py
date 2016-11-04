@@ -12,8 +12,13 @@ class Articulo (models.Model):
 
 
 
-    def __str__(self):
-        return self.descripcionArticulo
+
+
+
+
+
+
+
 
 
 
