@@ -1,53 +1,31 @@
+{% extends "inicio/menu.html" %}
 <html>
     <head>
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <title>Artículos Disponibles</title>
-
     </head>
 
     <body>
-        <nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="{% url 'inicio:menu' %}">Project
-					Manager</a>
-			</div>
+        {% block content %}
 
-
-
-			<div class="pull-right">
-				<ul class="nav navbar-nav">
-					<li><a href="{% url 'inicio:salir' %}">Logout</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-
-
-        <div class="container">
-            <h2>Artículos Disponibles </h2>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for arti in art %}
+                <h2>Artículos Disponibles </h2>
+                <table class="table table-hover">
+                    <thead>
                         <tr>
-                            <td> {{ arti.nombreArticulo }}     </td>
-                            <td>    {{arti.descripcionArticulo  }} </td>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
                         </tr>
-                    {% endfor %}
+                    </thead>
+                    <tbody>
+                        {% for arti in art %}
+                            <tr>
+                                <td> {{ arti.nombreArticulo }}     </td>
+                                <td>    {{arti.descripcionArticulo  }} </td>
+                            </tr>
+                        {% endfor %}
 
-                </tbody>
-            </table>
-
-        </div>
+                    </tbody>
+                </table>
+        {% endblock %}
 
     </body>
 
