@@ -12,19 +12,29 @@
                         <tr>
                             <th>Nombre</th>
                             <th>Descripción</th>
+                            <th>Modificar</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for arti in art %}
                             <tr>
                                 <td> {{ arti.nombreArticulo }}     </td>
-                                <td>    {{arti.descripcionArticulo  }} </td>
+                                <td> {{arti.descripcionArticulo  }} </td>
+                                <td><a href="{% url 'articulo:modificar_articulo' arti.id %}">
+                                    <span class="glyphicon glyphicon-pencil"></span></a></td>
                             </tr>
                         {% endfor %}
 
                     </tbody>
                 </table>
         {% endblock %}
+
+        {% block sidebar %}
+            <a href="{%url 'articulo:crear_articulos'%}"> Nuevo </a><br><br>
+            <a href="{%url 'articulo:listar_articulos'%}"> Reporte </a><br><br>
+
+        {% endblock %}
+
 
     </body>
 

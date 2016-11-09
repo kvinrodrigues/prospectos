@@ -8,37 +8,42 @@
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-				<a class="navbar-brand" href="{% url 'inicio:menu' %}">TeleMarketing</a>
-			</div>
-                <div class="pull-right">
-				    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" >Sistema <span class="caret"></span></a>
+        <div class="row">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+				        <a class="navbar-brand" href="{% url 'inicio:menu' %}">TeleMarketing</a>
+			        </div>
+                    <div class="pull-right">
+				        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" >Sistema <span class="caret"></span></a>
                             <ul class="dropdown-menu">
 
                                 <li><a href="{% url 'inicio:salir' %}">Logout</a></li>
                             </ul>
                         </li>
 
-			    </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{% url 'articulo:listar_articulos' %}  " accesskey="e">Articulos Disponibles <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{% url 'articulo:listar_articulos' %}  " accesskey="e">Articulos Disponibles</a></li>
-                            <li><a href="{% url 'articulo:crear_articulos' %}   ">Crear  Articulos</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="{% url 'articulo:listar_articulos' %}   ">Articulos</a></li>
-                    <li><a href="{%url 'vendedor:listar_vendedores'%}">Vendedores</a></li>
-                    <li><a href="{%url 'supervisor:listar_supervisores'%}">Supervisores</a></li>
+			        </div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="{% url 'articulo:crear_articulos' %}   ">Articulos</a></li>
+                        <li><a href="{%url 'vendedor:listar_vendedores'%}">Vendedores</a></li>
+                        <li><a href="{%url 'supervisor:listar_supervisores'%}">Supervisores</a></li>
 
-                </ul>
+                    </ul>
+                </div>
+            </nav>
+
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                <div id="content">{% block content %}{% endblock %}</div>
             </div>
-        </nav>
-        <div id="content">{% block content %}{% endblock %}</div>
 
+            <div class="col-md-3">
+                    <div id="sidebar">{% block sidebar %}{% endblock %}</div>
+
+            </div>
+        </div>
     </body>
 </html>
 

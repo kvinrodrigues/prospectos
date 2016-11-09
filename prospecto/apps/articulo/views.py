@@ -23,5 +23,24 @@ def crear_articulo(request):
     context = {'form':form}
     return render(request, 'articulo/crear_articulos.html', context)
 
+@login_required
+@permission_required('articulo.modificar_articulos')
+def modificar_articulo(request, articulo_id):
+
+    articulo = Articulo.objects.get(pk=articulo_id)
+    form = ArtForm(instance=articulo)
+
+    if request.method == 'POST':
+        form = ArtForm(request.POST, instance=articulo)
+
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('articulo:listar_articulos'))
+
+    context = {'form':form, 'articulo_id':articulo_id}
+    return render(request, 'articulo/modificar_articulos.html', context)
+
+
+
 
 

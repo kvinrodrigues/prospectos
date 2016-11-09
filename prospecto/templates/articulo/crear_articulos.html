@@ -1,4 +1,5 @@
 {% extends "inicio/menu.html" %}
+
 <html>
 <head>
 <meta charset="utf-8">
@@ -24,6 +25,14 @@
 </form>
 
 {% endblock %}
+
+{% block sidebar %}
+    <a href="{%url 'articulo:crear_articulos'%}"> Nuevo </a><br><br>
+    <a href="{%url 'articulo:listar_articulos'%}"> Reporte </a>
+
+
+{% endblock %}
+
 
 </body>
 </html>
