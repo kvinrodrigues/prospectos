@@ -8,9 +8,9 @@ urlpatterns = [
     # crear articulo
     url(r'^crear_articulos/', views.crear_articulo, name='crear_articulos'),
     #modificar articulo
-    url(r'^modificar_articulo/(?P<articulo_id>\d+)/$', views.modificar_articulo, name='modificar_articulo'),
+    url(r'^modificar_articulos/(?P<articulo_id>\d+)/$', views.modificar_articulo, name='modificar_articulos'),
 
-    url(r'^eliminar_articulo/(?P<id>\d+)/$', views.eliminar_articulo, name='eliminar_articulo')
+    url(r'^eliminar_articulos/(?P<id>\d+)/$', views.eliminar_articulo, name='eliminar_articulos')
 
 
 

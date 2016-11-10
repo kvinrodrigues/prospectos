@@ -1,7 +1,15 @@
+<style>
+body {
+    	background-color: #CCFFFF;
+	}
+</style>
 
-<html>
 
-<body>
-aaaaaaaaaaaaaaaa
-</body>
-</html>
+<table style="width:100%">
+  <tr>
+    <td><h2> El Articulo ha sido eliminado </h2></td>
+    <td align="right"><a href="{% url 'inicio:salir' %}"> Logout </a></td>
+  </tr>
+</table>
+
+<a href="{% url 'articulo:menu_proyecto' %}"> Administrar proyectos </a>

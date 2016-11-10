@@ -18,7 +18,7 @@
 
         {% block content %}
                 <h2>Modificar Articulos Disponibles </h2>
-                <form action="{% url 'articulo:modificar_articulo' articulo_id %}" method="post" class="form">
+                <form action="{% url 'articulo:modificar_articulos' articulo_id %}" method="post" class="form">
 						{% load bootstrap3 %} {% csrf_token %} {% bootstrap_form form %}
                     <input class="btn btn-primary" type='submit' value='Modificar Articulo' />
                 </form>
