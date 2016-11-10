@@ -44,7 +44,7 @@ INSTALLED_APPS = (
     'apps.history',
     'apps.supervisor',
     'apps.target_contact',
-    'apps.usuario',
+    'apps.usuarios',
     'apps.vendedor',
     'apps.inicio',
     'bootstrap3',

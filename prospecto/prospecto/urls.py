@@ -20,7 +20,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('apps.inicio.urls')),
     url(r'^inicio/', include('apps.inicio.urls', namespace='inicio')),
-    url(r'^usuario/', include('apps.usuario.urls', namespace='usuarios')),
+    url(r'^usuario/', include('apps.usuarios.urls', namespace='usuarios')),
     url(r'^target/', include('apps.target.urls', namespace='target')),
     url(r'^articulo/', include('apps.articulo.urls', namespace='articulo')),
     url(r'^campanha/', include('apps.campanha.urls', namespace='campanha')),
