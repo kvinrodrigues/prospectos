@@ -6,4 +6,6 @@ urlpatterns = [
     # ej: proyecto/listar_vendedores
     url(r'^listar_vendedores/', views.listar_vendedor, name='listar_vendedores'),
     # ej: articulo/crear_vendedores
-    url(r'^crear_vendedores/', views.crear_vendedor, name='crear_vendedores')]
+    url(r'^crear_vendedores/', views.crear_vendedor, name='crear_vendedores'),
+    url(r'^modificar_vendedor/(?P<vendedor_id>\d+)/$', views.modificar_vendedor, name='modificar_vendedor')
+]
