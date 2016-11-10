@@ -2,6 +2,8 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+from django.urls import reverse_lazy
+
 from apps.articulo.models import Articulo
 from .forms import ArtForm
 
@@ -39,6 +41,13 @@ def modificar_articulo(request, articulo_id):
 
     context = {'form':form, 'articulo_id':articulo_id}
     return render(request, 'articulo/modificar_articulos.html', context)
+
+@login_required
+@permission_required('articulo.remove_articulo')
+def eliminar_articulo(request, id):
+    proyecto = Articulo.objects.get(pk=id)
+    proyecto.delete()
+    return HttpResponseRedirect(reverse_lazy('articulo:listar_articulos'))
 
 
 

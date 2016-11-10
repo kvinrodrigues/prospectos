@@ -13,6 +13,7 @@
                             <th>Nombre</th>
                             <th>Descripción</th>
                             <th>Modificar</th>
+                            <th>Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -22,6 +23,14 @@
                                 <td> {{arti.descripcionArticulo  }} </td>
                                 <td><a href="{% url 'articulo:modificar_articulo' arti.id %}">
                                     <span class="glyphicon glyphicon-pencil"></span></a></td>
+                                <td>
+
+
+                                    <a href="{% url 'eliminar_articulo' arti.id %}"
+                                       onClick="return confirm('Desea eliminar el articulo: arti.nombreArticulo?')">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </a>
+                                </td>
                             </tr>
                         {% endfor %}
 

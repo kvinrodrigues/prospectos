@@ -10,6 +10,8 @@ urlpatterns = [
     #modificar articulo
     url(r'^modificar_articulo/(?P<articulo_id>\d+)/$', views.modificar_articulo, name='modificar_articulo'),
 
+    url(r'^eliminar_articulo/(?P<id>\d+)/$', views.eliminar_articulo, name='eliminar_articulo')
+
 
 
 
