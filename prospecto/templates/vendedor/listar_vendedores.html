@@ -26,9 +26,12 @@
                                 <td>
 
 
-
+                                    <a href="{% url 'vendedor:eliminar_vendedores' vend.id%}"
+                                       onClick="return confirm('Desea eliminar el vendedor: vend.nombreVendedor?')">
+                                        <span class="glyphicon glyphicon-remove"></span>
                                     </a>
                                 </td>
+
                             </tr>
                         {% endfor %}
 

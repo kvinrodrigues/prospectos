@@ -1,6 +1,8 @@
+from django.contrib.auth.decorators import login_required, permission_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+from django.urls import reverse_lazy
 from apps.vendedor.models import Supervisor
 from .forms import SupervisorForm
 def listar_supervisor(request):
@@ -32,3 +34,9 @@ def modificar_supervisor(request, supervisor_id):
     context = {'form':form, 'supervisor_id':supervisor_id}
     return render(request, 'supervisor/modificar_supervisores.html', context)
 
+@login_required
+@permission_required('supervisor.remove_supervisor')
+def eliminar_supervisor(request, id):
+    super = Supervisor.objects.get(pk=id)
+    super.delete()
+    return HttpResponseRedirect(reverse_lazy('supervisor:listar_supervisores'))
