@@ -38,9 +38,9 @@ def crear_usuario(request):
             for g in groups:
                 usuario.groups.add(g)
             usuario.save()
-            return HttpResponseRedirect(reverse('usuario:listar_usuarios'))
+            return HttpResponseRedirect(reverse('usuarios:listar_usuarios'))
 
-    return render(request, 'usuario/crear_usuario.html', {'form': form})
+    return render(request, 'usuario/crear_usuarios.html', {'form': form})
 
 @login_required
 @permission_required('auth.change_user')
@@ -71,7 +71,7 @@ def modificar_usuario(request, usuario_id):
             usuario.is_active = is_active
             usuario.save()
 
-            return HttpResponseRedirect(reverse('usuario:listar_usuarios'))
+            return HttpResponseRedirect(reverse('usuarios:listar_usuarios'))
 
     context = {'form': form, 'usuario_id': usuario_id}
     return render(request, 'usuario/modificar_usuarios.html', context)
@@ -82,7 +82,7 @@ def modificar_usuario(request, usuario_id):
 def eliminar_usuario(request, usuario_id):
     usuario = User.objects.get(pk=usuario_id)
     usuario.delete()
-    return HttpResponseRedirect(reverse('usuario:listar_usuarios'))
+    return HttpResponseRedirect(reverse('usuarios:listar_usuarios'))
 
 
 @login_required

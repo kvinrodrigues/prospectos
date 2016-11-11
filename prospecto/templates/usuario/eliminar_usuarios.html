@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<style>
+body {
+    	background-color: #CCFFFF;
+	}
+</style>
 
-</body>
-</html>
+
+<table style="width:100%">
+  <tr>
+    <td><h2> El Usuario ha sido eliminado </h2></td>
+    <td align="right"><a href="{% url 'inicio:salir' %}"> Logout </a></td>
+  </tr>
+</table>
+
+<a href="{% url 'articulo:menu_proyecto' %}"> Administrar proyectos </a>

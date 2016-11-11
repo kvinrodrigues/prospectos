@@ -30,7 +30,9 @@
                                 <td><a href="{% url 'usuarios:modificar_usuarios' user.id %}"><span
 							    class="glyphicon glyphicon-pencil"></span></a></td>
 
-
+                                <td><a href="{% url 'usuarios:eliminar_usuario' user.id %}"
+						        onClick="return confirm('Desea eliminar el usuario: {{user.username}}?')"><span
+							    class="glyphicon glyphicon-remove"></span></a></td>
 
 
 
@@ -42,8 +44,9 @@
     {% endblock %}
 
     {% block sidebar %}
-            <a href="#"> Nuevo </a><br><br>
-            <a href="{%url 'usuarios:listar_usuarios'%}"> Reporte </a><br><br>
+            <a href="{%url 'usuarios:crear_usuarios'%}"> Nuevo </a><br><br>
+
+
 
     {% endblock %}
 
