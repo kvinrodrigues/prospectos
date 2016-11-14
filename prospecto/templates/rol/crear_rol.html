@@ -1,4 +1,5 @@
 {% extends "inicio/menu.html" %}
+
 <html>
 <head>
 <meta charset="utf-8">
@@ -13,7 +14,7 @@
 
 {% load bootstrap3 %}
 
-<form action="{% url 'articulo:crear_articulos' %}" method="post" class="form">
+<form action="{% url 'rol:crear_rol' %}" method="post" class="form">
     {% csrf_token %}
     {% bootstrap_form form %}
     {% buttons %}
@@ -26,8 +27,8 @@
 {% endblock %}
 
 {% block sidebar %}
-    <a href="{%url 'articulo:crear_articulos'%}"> Nuevo </a><br><br>
-    <a href="{%url 'articulo:listar_articulos'%}"> Reporte </a>
+    <a href="{%url 'rol:crear_rol'%}"> Nuevo </a><br><br>
+    <a href="{%url 'rol:listar_roles'%}"> Reporte </a>
 
 
 {% endblock %}
