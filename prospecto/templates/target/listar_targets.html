@@ -1,0 +1,56 @@
+{% extends "inicio/menu.html" %}
+<html>
+    <head>
+        <title>Targets</title>
+    </head>
+
+    <body>
+        {% block content %}
+                <h2>Targets </h2>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Telefono</th>
+                            <th>Origen</th>
+                            <th>Estado</th>
+                            <th>Modificar</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for tg in target %}
+                            <tr>
+                                <td> {{ tg.nombreTarget  }}    </td>
+                                <td> {{ tg.telefonoTarget }}    </td>
+                                <td> {{ tg.origenTarget }}    </td>
+                                <td> {{ tg.estadoTarget }}    </td>
+
+                                <td><a href="{% url 'target:modificar_targets' tg.id %}">
+                                    <span class="glyphicon glyphicon-pencil"></span></a></td>
+                               <td>
+
+                                    <a href="{% url 'target:eliminar_targets' tg.id%}"
+                                       onClick="return confirm('Desea eliminar el supervisor: tg.nombreTarget')">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+        {% endblock %}
+
+        {% block sidebar %}
+            <a href="{%url 'target:crear_targets'%}"> Nuevo </a><br><br>
+            <a href="{%url 'target:listar_targets'%}"> Reporte </a><br><br>
+
+        {% endblock %}
+
+
+    </body>
+
+</html>
+
+

@@ -1,0 +1,38 @@
+{% extends "inicio/menu.html" %}
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags --><title>Project </title>
+</head>
+<body>
+
+{% block content %}
+
+
+{% load bootstrap3 %}
+
+<form action="{% url 'target:crear_targets' %}" method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+        <button type="submit" class="btn btn-primary">
+            {% bootstrap_icon "star" %} Submit
+        </button>
+    {% endbuttons %}
+</form>
+
+{% endblock %}
+
+{% block sidebar %}
+    <a href="{%url 'target:crear_targets'%}"> Nuevo  </a><br><br>
+    <a href="{%url 'target:listar_targets'%}"> Reporte </a>
+
+
+{% endblock %}
+
+
+</body>
+</html>
