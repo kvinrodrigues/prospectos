@@ -5,7 +5,8 @@
     <title></title>
 </head>
 <body>
-<div class="col-sm-10">
+{% block content %}
+
                 <h2>Roles </h2>
                 <table class="table table-hover">
                     <thead>
@@ -15,14 +16,14 @@
                             <th>Eliminar</th>
                         </tr>
                     </thead>
-				{% for rol in listar_roles %}
+				{% for rol in lista_roles %}
 				<tr>
                                 <td> {{ rol.name }}     </td>
-                                    <td><a href="{% url 'rol:modificar_rol' rol.name %}">
+                                    <td><a href="{% url 'rol:modificar_rol' rol.id %}">
                                     <span class="glyphicon glyphicon-pencil"></span></a></td>
                                 <td>
 
-                                    <a href="{% url 'rol:eliminar_rol' rol.name%}"
+                                    <a href="{% url 'rol:eliminar_rol' rol.id%}"
                                        onClick="return confirm('Desea eliminar el rol: rol.name?')">
                                         <span class="glyphicon glyphicon-remove"></span>
                                     </a>
@@ -31,7 +32,7 @@
 				{% endfor %}
 			</table>
 
-
+{% endblock %}
 {% block sidebar %}
     <a href="{%url 'rol:crear_rol'%}"> Nuevo </a><br><br>
     <a href="{%url 'rol:listar_roles'%}"> Reporte </a>
