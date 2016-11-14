@@ -1,0 +1,33 @@
+{% extends "inicio/menu.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="col-sm-10">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-7">
+					<h3 align="center">Modificar rol</h3>
+					</br>
+
+					<form action="{% url 'rol:modificar_rol' rol_id %}"
+						method="post">
+						{% csrf_token %} {% load bootstrap %} {{ form|bootstrap }} <input
+							class="btn btn-primary" type='submit' value='Modificar rol' />
+					</form>
+				</div>
+				<div class="col-md-3"></div>
+			</div>
+
+
+
+		</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="{{ STATIC_URL }}/jquery/jquery-1.11.2.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="{{ STATIC_URL }}/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
