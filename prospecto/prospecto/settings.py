@@ -15,7 +15,6 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = '#%gp+-f=odcu_5ky3(@=&#v_+#-511@h#r1$%47r-tgqh8881o'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -47,9 +45,9 @@ INSTALLED_APPS = (
     'apps.usuarios',
     'apps.vendedor',
     'apps.inicio',
+    'apps.auditoria',
     'bootstrap3',
-
-
+    'simple_history',
 
 )
 
@@ -62,6 +60,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'simple_history.middleware.HistoryRequestMiddleware',
+
 )
 
 ROOT_URLCONF = 'prospecto.urls'
@@ -84,7 +84,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'prospecto.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
@@ -98,7 +97,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/

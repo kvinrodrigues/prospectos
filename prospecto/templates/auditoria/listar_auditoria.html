@@ -1,0 +1,58 @@
+{% extends "inicio/menu.html" %}
+<html>
+    <head>
+        <title>Historial</title>
+    </head>
+
+    <body>
+        {% block content %}
+            <h2>Historial </h2>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Usuario</th>
+                            <th>Descripción</th>
+                            <th>Tipo de Acceso</th>
+                            <th>Parametros</th>
+                            <th>IP</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td> Pancho Villa </td>
+                                <td> Ofrece Hot Dogs    </td>
+                                <td> localhost    </td>
+                                <td> Vendio Hot dogs    </td>
+                                <td> 127.0.0.1
+
+                                    <td><a href="#"
+                                       onClick="return confirm('Desea eliminar el dato:Pancho vIlla ')">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                    </tbody>
+                </table>
+        {% endblock %}
+
+        {% block sidebar %}
+                Filtrar<br><br>
+
+                        <input class="btn btn-primary" type='submit' value='Buscar' />
+
+
+            <br><br>
+            <a href="{%url 'inicio:menu'%}"> Inicio </a><br><br>
+            <a href="#"> Salir </a><br><br>
+
+        {% endblock %}
+
+
+    </body>
+
+</html>
+
+
