@@ -8,6 +8,5 @@ class Target_Contact (models.Model):
     Vendedor = models.ForeignKey(Vendedor,null=True)
     Articulo=models.ManyToManyField(Articulo)
 
-    def __str__(self):
-        return self.Objetivo
+
 

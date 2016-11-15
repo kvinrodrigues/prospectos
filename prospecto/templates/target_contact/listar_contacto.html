@@ -1,0 +1,55 @@
+{%extends "inicio/menu.html" %}
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        {% block content %}
+                <h2> </h2>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Contacto</th>
+                            <th>Articulos</th>
+                            <th>Vendedor</th>
+
+                            <th>Modificar</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for con in contact %}
+                            <tr>
+                                <td>cd  {{ con.Objetivo }}     </td>
+                                <td> {{ con.Articulo }}     </td>
+                                <td> {{ con.Vendedor }}     </td>
+                                <td><a href="{% url 'target_contact:modificar_contacto' con.id %}">
+                                    <span class="glyphicon glyphicon-pencil"></span></a></td>
+                                <td>
+
+
+
+
+                                    <a href="{% url 'target_contact:eliminar_contacto' con.id%}"
+                                       onClick="return confirm('Desea eliminar el Contacto: con.id?')">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+        {% endblock %}
+
+        {% block sidebar %}
+            <a href="{%url 'target_contact:crear_contacto'%}"> Nuevo </a><br><br>
+            <a href="{%url 'target_contact:listar_contacto'%}"> Reporte </a><br><br>
+
+        {% endblock %}
+
+
+    </body>
+
+</html>
