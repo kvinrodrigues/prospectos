@@ -15,7 +15,7 @@ def autenticar(request):
 
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse('inicio:menu'))
+            return HttpResponseRedirect(reverse('target_contact:crear_contacto'))
     return render(request, 'inicio/autenticar.html')
 
 @login_required
