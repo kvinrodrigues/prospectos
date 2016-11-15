@@ -11,6 +11,7 @@
                     <thead>
                         <tr>
                             <th>Nombre</th>
+                            <th>Articulos</th>
                             <th>Modificar</th>
                             <th>Eliminar</th>
                         </tr>
@@ -19,6 +20,7 @@
                         {% for cam in cam %}
                             <tr>
                                 <td> {{ cam.nombreCampanha }}     </td>
+                                <td> {{ cam.arti }}  </td>
                                 <td><a href="{% url 'campanha:modificar_campanha' cam.id %}">
                                     <span class="glyphicon glyphicon-pencil"></span></a></td>
                                 <td>
