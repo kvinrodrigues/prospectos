@@ -10,7 +10,7 @@ from .forms import ArtForm
 
 @login_required
 def listar_articulo(request):
-    art = Articulo.objects.all().order_by('pk')
+    art= Articulo.objects.all().order_by('pk')
     return render(request, 'articulo/listar_articulos.html', {'art':art})
 
 @login_required
