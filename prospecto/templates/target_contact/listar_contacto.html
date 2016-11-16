@@ -7,6 +7,12 @@
     <body>
         {% block content %}
                 <h2> </h2>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                     <input class="btn btn-primary" type='submit' value='Buscar' />
+                </form>
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -44,8 +50,8 @@
         {% endblock %}
 
         {% block sidebar %}
-            <a href="{%url 'target_contact:crear_contacto'%}"> Nuevo </a><br><br>
-            <a href="{%url 'target_contact:listar_contacto'%}"> Reporte </a><br><br>
+            <a href="{%url 'target_contact:crear_contacto'%}">Nuevo</a><br><br>
+            <a href="{%url 'target_contact:listar_contacto'%}">Reporte</a><br><br>
 
         {% endblock %}
 

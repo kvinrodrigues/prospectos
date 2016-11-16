@@ -7,6 +7,12 @@
     <body>
         {% block content %}
                 <h2>Campañas </h2>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                     <input class="btn btn-primary" type='submit' value='Buscar' />
+                </form>
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -41,8 +47,8 @@
         {% endblock %}
 
         {% block sidebar %}
-            <a href="{%url 'campanha:crear_campanha'%}"> Nuevo </a><br><br>
-            <a href="{%url 'campanha:listar_campanhas'%}"> Reporte </a><br><br>
+            <a href="{%url 'campanha:crear_campanha'%}">Nuevo</a><br><br>
+            <a href="{%url 'campanha:listar_campanhas'%}">Reporte</a><br><br>
 
         {% endblock %}
 

@@ -8,6 +8,12 @@
 {% block content %}
 
                 <h2>Roles </h2>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                     <input class="btn btn-primary" type='submit' value='Buscar' />
+                </form>
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -34,8 +40,8 @@
 
 {% endblock %}
 {% block sidebar %}
-    <a href="{%url 'rol:crear_rol'%}"> Nuevo </a><br><br>
-    <a href="{%url 'rol:listar_roles'%}"> Reporte </a>
+    <a href="{%url 'rol:crear_rol'%}">Nuevo</a><br><br>
+    <a href="{%url 'rol:listar_roles'%}">Reporte</a>
 
 
 {% endblock %}
@@ -43,9 +49,6 @@
 
 
 		</div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="{{ STATIC_URL }}/jquery/jquery-1.11.2.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="{{ STATIC_URL }}/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+
 </body>
 </html>
