@@ -1,19 +1,101 @@
-{% extends "inicio/menu.html" %}
 <html>
     <head>
         <title>Artículos Disponibles</title>
     </head>
 
-    <body>
-        {% block content %}
-                <h2>Campañas </h2>
-                <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                     <input class="btn btn-primary" type='submit' value='Buscar' />
-                </form>
-                <table class="table table-hover">
+     <body>
+       <head>
+        <title>Campanhas</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script language="javascript">
+		    function doSearch()
+		    {
+			    var tableReg = document.getElementById('datos');
+			    var searchText = document.getElementById('searchTerm').value.toLowerCase();
+			    var cellsOfRow="";
+			    var found=false;
+			    var compareWith="";
+
+			    // Recorremos todas las filas con contenido de la tabla
+			    for (var i = 1; i < tableReg.rows.length; i++)
+			    {
+				    cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+				    found = false;
+				    // Recorremos todas las celdas
+				    for (var j = 0; j < cellsOfRow.length && !found; j++)
+				    {
+					    compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+					    // Buscamos el texto en el contenido de la celda
+					    if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
+					    {
+						    found = true;
+					    }
+				    }
+				    if(found)
+				    {
+					    tableReg.rows[i].style.display = '';
+				    } else {
+					    // si no ha encontrado ninguna coincidencia, esconde la
+					    // fila de la tabla
+					    tableReg.rows[i].style.display = 'none';
+				    }
+			    }
+		    }
+	    </script>
+
+	    <style>
+		    #datos	{border:1px solid #ccc;padding:10px;}
+		    #datos tr:nth-child(even) {background:#ccc;}
+		    #datos td {padding:5px;}
+	    </style>
+        </head>
+       <body>
+        <div class="row">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+				        <a class="navbar-brand" href="{% url 'target_contact:crear_contacto' %}">TeleMarketing</a>
+			        </div>
+                    <div class="pull-right">
+				        <li class="dropdown"><a class="navbar-brand" data-toggle="dropdown" href="#" >Sistema <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><br></li>
+                                <li ><a href="{% url 'usuarios:listar_usuarios' %}">Usuarios</a>           </li>
+                                <li ><a href="{% url 'auditoria:listar_auditoria' %}">Historial</a>           </li>
+                                <li><a href="{%url 'rol:listar_roles'%}">Roles</a></li>
+                                <li><a href="{% url 'inicio:salir' %}">Logout</a></li>
+                            </ul>
+                        </li>
+
+			        </div>
+
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="{% url 'inicio:home' %}">Home</a></li>
+                        <li><a href="{% url 'articulo:listar_articulos' %}">Articulos</a></li>
+                        <li><a href="{%url 'vendedor:listar_vendedores'%}">Vendedores</a></li>
+                        <li><a href="{%url 'supervisor:listar_supervisores'%}">Supervisores</a></li>
+                        <li><a href="{%url 'target:listar_targets'%}">Target</a></li>
+
+                        <li><a href="{%url 'campanha:listar_campanhas'%}">Campañas</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="col-md-1">
+                <a href="{%url 'campanha:crear_campanha'%}">Nuevo</a><br><br>
+                <a href="{%url 'campanha:listar_campanhas'%}">Reporte</a><br><br>
+            </div>
+
+            <div class="col-md-9">
+                <h2>Campanhas</h2>
+                <form>
+                       Buscar: <input id="searchTerm" type="text" onkeyup="doSearch()" />
+	            </form>
+
+                <table id="datos" class="table table-hover">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -44,15 +126,12 @@
 
                     </tbody>
                 </table>
-        {% endblock %}
-
-        {% block sidebar %}
-            <a href="{%url 'campanha:crear_campanha'%}">Nuevo</a><br><br>
-            <a href="{%url 'campanha:listar_campanhas'%}">Reporte</a><br><br>
-
-        {% endblock %}
 
 
+
+</div>
+            </div>
     </body>
+     </body>
 
 </html>
