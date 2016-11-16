@@ -15,11 +15,12 @@
 				        <a class="navbar-brand" href="{% url 'target_contact:crear_contacto' %}">TeleMarketing</a>
 			        </div>
                     <div class="pull-right">
-				        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" >Sistema <span class="caret"></span></a>
+				        <li class="dropdown"><a class="navbar-brand" data-toggle="dropdown" href="#" >Sistema <span class="caret"></span></a>
                             <ul class="dropdown-menu">
+                                <li><br></li>
                                 <li ><a href="{% url 'usuarios:listar_usuarios' %}">Usuarios</a>           </li>
                                 <li ><a href="{% url 'auditoria:listar_auditoria' %}">Historial</a>           </li>
-
+                                <li><a href="{%url 'rol:listar_roles'%}">Roles</a></li>
                                 <li><a href="{% url 'inicio:salir' %}">Logout</a></li>
                             </ul>
                         </li>
@@ -27,13 +28,13 @@
 			        </div>
 
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{% url 'target_contact:crear_contacto' %}">Home</a></li>
+                        <li class="active"><a href="{% url 'inicio:home' %}">Home</a></li>
                         <li><a href="{% url 'articulo:listar_articulos' %}">Articulos</a></li>
                         <li><a href="{%url 'vendedor:listar_vendedores'%}">Vendedores</a></li>
                         <li><a href="{%url 'supervisor:listar_supervisores'%}">Supervisores</a></li>
                         <li><a href="{%url 'target:listar_targets'%}">Target</a></li>
-                        <li><a href="{%url 'rol:listar_roles'%}">Roles</a></li>
-                        <li><a href="{%url 'campanha:listar_campanhas'%}">Campanhas</a></li>
+
+                        <li><a href="{%url 'campanha:listar_campanhas'%}">Campañas</a></li>
 
 
 
@@ -43,12 +44,12 @@
 
         </div>
         <div class="row">
-            <div class="col-md-9">
-                <div id="content">{% block content %}{% endblock %}</div>
+            <div class="col-md-1">
+                <div id="sidebar"><center><h5>{% block sidebar %}{% endblock %}</h5></center></div>
             </div>
 
-            <div class="col-md-3">
-                    <div id="sidebar">{% block sidebar %}{% endblock %}</div>
+            <div class="col-md-9">
+                    <div id="content">{% block content %}{% endblock %}</div>
 
             </div>
         </div>

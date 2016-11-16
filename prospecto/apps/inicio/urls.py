@@ -6,6 +6,7 @@ urlpatterns = [
     url(r'^$', views.autenticar, name='autenticar'),
 
     url(r'^menu/$', views.menu, name='menu'),
+    url(r'^home/$', views.home, name='home'),
 
     url(r'^salir/$', views.salir, name='salir')
 

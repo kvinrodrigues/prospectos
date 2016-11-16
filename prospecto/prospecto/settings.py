@@ -47,7 +47,7 @@ INSTALLED_APPS = (
     'apps.inicio',
     'apps.auditoria',
     'bootstrap3',
-    'simple_history',
+
 
 )
 
@@ -60,7 +60,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'simple_history.middleware.HistoryRequestMiddleware',
+
 
 )
 

@@ -6,7 +6,7 @@
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <title>Modificar Campanhas</title>
+        <title>Modificar Campañas</title>
     </head>
 
     <body>
@@ -17,10 +17,10 @@
 
 
         {% block content %}
-                <h2>Modificar Campanha </h2>
+                <h2>Modificar Campaña </h2>
                 <form action="{% url 'campanha:modificar_campanha' campanha_id %}" method="post" class="form">
 						{% load bootstrap3 %} {% csrf_token %} {% bootstrap_form form %}
-                    <input class="btn btn-primary" type='submit' value='Modificar campanha' />
+                    <input class="btn btn-primary" type='submit' value='Modificar' />
                 </form>
         {% endblock %}
 

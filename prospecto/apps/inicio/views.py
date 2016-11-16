@@ -15,12 +15,15 @@ def autenticar(request):
 
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse('target_contact:crear_contacto'))
+            return HttpResponseRedirect(reverse('inicio:home'))
     return render(request, 'inicio/autenticar.html')
 
 @login_required
 def menu(request):
     return render(request, 'inicio/menu.html')
+
+def home(request):
+    return render(request,'inicio/home.html')
 
 
 def salir(request):

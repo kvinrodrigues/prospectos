@@ -15,7 +15,7 @@
                             <th>Tipo de Acceso</th>
                             <th>Parametros</th>
                             <th>IP</th>
-                            <th>Eliminar</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -26,11 +26,9 @@
                                 <td> Vendio Hot dogs    </td>
                                 <td> 127.0.0.1
 
-                                    <td><a href="#"
-                                       onClick="return confirm('Desea eliminar el dato:Pancho vIlla ')">
-                                        <span class="glyphicon glyphicon-remove"></span>
-                                    </a>
-                                </td>
+
+
+
                             </tr>
 
 
@@ -45,8 +43,8 @@
 
 
             <br><br>
-            <a href="{%url 'inicio:menu'%}"> Inicio </a><br><br>
-            <a href="#"> Salir </a><br><br>
+            <a href="{%url 'inicio:home'%}"> Inicio </a><br><br>
+            <a href="{% url 'inicio:salir' %}"> Salir </a><br><br>
 
         {% endblock %}
 

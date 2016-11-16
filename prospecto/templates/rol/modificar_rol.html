@@ -9,7 +9,7 @@
                 <h2>Modificar Rol</h2>
                 <form action="{% url 'rol:modificar_rol' rol_id %}" method="post" class="form">
 						{% load bootstrap3 %} {% csrf_token %} {% bootstrap_form form %}
-                    <input class="btn btn-primary" type='submit' value='Modificar Supervisor' />
+                    <input class="btn btn-primary" type='submit' value='Modificar' />
                 </form>
         {% endblock %}
 
