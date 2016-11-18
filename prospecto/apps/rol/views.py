@@ -2,16 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import Group
-
 from django.contrib.auth.decorators import login_required, permission_required
-
 from apps.rol.forms import RolForm
 
 
-
-
-
 @login_required
+@permission_required('rol.add_rol')
 def crear_rol(request):
     if request.method == 'GET':
         form = RolForm()
@@ -27,6 +23,7 @@ def crear_rol(request):
 
 
 @login_required
+@permission_required('rol.change_rol')
 def modificar_rol(request, rol_id):
     rol = Group.objects.get(pk=rol_id)
     form = RolForm(instance=rol)
@@ -43,6 +40,7 @@ def modificar_rol(request, rol_id):
 
 
 @login_required
+@permission_required('rol.remove_rol')
 def eliminar_rol(request, rol_id):
     rol = Group.objects.get(pk=rol_id)
     rol.delete()
@@ -50,6 +48,7 @@ def eliminar_rol(request, rol_id):
 
 
 @login_required
+@permission_required('rol.add_rol')
 def listar_roles(request):
     lista_roles = Group.objects.all().order_by('name')
     context = {'lista_roles':lista_roles}

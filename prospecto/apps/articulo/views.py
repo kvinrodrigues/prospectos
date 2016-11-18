@@ -14,7 +14,7 @@ def listar_articulo(request):
     return render(request, 'articulo/listar_articulos.html', {'art':art})
 
 @login_required
-@permission_required('articulo.crear_articulos')
+@permission_required('articulo.add_articulo')
 def crear_articulo(request):
     if request.method == 'POST':
         form = ArtForm(request.POST)
@@ -27,7 +27,7 @@ def crear_articulo(request):
     return render(request, 'articulo/crear_articulos.html', context)
 
 @login_required
-@permission_required('articulo.modificar_articulos')
+@permission_required('articulo.change_articulo')
 def modificar_articulo(request, articulo_id):
 
     articulo = Articulo.objects.get(pk=articulo_id)

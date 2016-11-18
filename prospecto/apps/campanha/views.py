@@ -14,7 +14,7 @@ def listar_campanhas(request):
     return render(request, 'campanha/listar_campanhas.html', {'cam':cam})
 
 @login_required
-@permission_required('campanha.crear_campanha')
+@permission_required('campanha.add_campanha')
 def crear_campanha(request):
     if request.method == 'POST':
         form = CamForm(request.POST)
@@ -27,7 +27,7 @@ def crear_campanha(request):
     return render(request, 'campanha/crear_campanha.html', context)
 
 @login_required
-@permission_required('campanha.modificar_campanha')
+@permission_required('campanha.change_campanha')
 def modificar_campanha(request, campanha_id):
 
     campanha = Campanha.objects.get(pk=campanha_id)

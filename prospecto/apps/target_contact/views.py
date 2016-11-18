@@ -14,7 +14,7 @@ def listar_contacto(request):
     return render(request, 'target_contact/listar_contacto.html', {'contact':contact})
 
 @login_required
-@permission_required('target_contact.crear_contacto')
+@permission_required('target_contact.add_target_contact')
 def crear_contacto(request):
     if request.method == 'POST':
         form = Target_ContactForm(request.POST)
@@ -27,7 +27,7 @@ def crear_contacto(request):
     return render(request, 'target_contact/crear_contacto.html', context)
 
 @login_required
-@permission_required('contacto.modificar_contacto')
+@permission_required('target_contact.change_target_contact')
 def modificar_contacto(request, contacto_id):
     target = Target_Contact.objects.get(pk=contacto_id)
     form = Target_ContactForm(instance=target)
@@ -43,7 +43,7 @@ def modificar_contacto(request, contacto_id):
     return render(request, 'target_contact/modificar_contacto.html', context)
 
 @login_required
-@permission_required('contacto.eliminar_contacto')
+@permission_required('target_contact.remove_target_contact')
 def eliminar_contacto(request, id):
     tc = Target_Contact.objects.get(pk=id)
     tc.delete()
