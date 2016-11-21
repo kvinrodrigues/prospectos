@@ -94,28 +94,28 @@
                     <thead>
                         <tr>
                             <th>Nombre</th>
-                            <th>Supervisor</th>
                             <th>Modificar</th>
                             <th>Eliminar</th>
+                            <th>Detalles</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for vend in vende %}
                             <tr>
                                 <td> {{ vend.nombreVendedor }}     </td>
-                                <td> {{vend.vendedor_supervisor  }}  </td>
                                 <td><a href="{% url 'vendedor:modificar_vendedor' vend.id %}">
-                                    <span class="glyphicon glyphicon-pencil"></span></a></td>
+                                    <span class="glyphicon glyphicon-pencil"></span></a>
+                                </td>
                                 <td>
-
-
                                     <a href="{% url 'vendedor:eliminar_vendedores' vend.id%}"
                                        onClick="return confirm('Desea eliminar el vendedor: vend.nombreVendedor?')">
                                         <span class="glyphicon glyphicon-remove"></span>
                                     </a>
                                 </td>
+                                <td><a href="{%url 'vendedor:listar_detalles'%}">Ver</a></td>
 
                             </tr>
+
                         {% endfor %}
 
                     </tbody>
