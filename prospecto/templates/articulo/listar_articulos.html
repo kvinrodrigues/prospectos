@@ -2,7 +2,7 @@
     <head>
         <title>Artículos Disponibles</title>
     </head>
-    <body>
+
        <head>
         <title>Articulos</title>
         <meta charset="utf-8">
@@ -83,16 +83,16 @@
                     </ul>
                 </div>
             </nav>
-            <div class="col-md-1">
-
-                    <a href="{%url  'articulo:crear_articulos'%}"><center><button type="button" class="btn btn-default">Nuevo</button></center></a>
-
+            <div class="col-md-1" id="newArt">
+                         <a href="{%url  'articulo:crear_articulos'%}"><center><button type="button" class="btn btn-default">Nuevo</button></center></a>
             </div>
 
             <div class="col-md-9">
+
+
                 <h2>Articulos</h2>
                 <form>
-                       Buscar: <input id="searchTerm" type="text" onkeyup="doSearch()" />
+                       <input id="searchTerm" type="text" onkeyup="doSearch()" />
 	            </form>
 
                 <table id="datos" class="table table-hover">
@@ -111,9 +111,6 @@
                                     <span class="glyphicon glyphicon-pencil"></span></a></td>
                                 <td>
 
-
-
-
                                     <a href="{% url 'articulo:eliminar_articulos' arti.id%}"
                                        onClick="return confirm('Desea eliminar el articulo: arti.nombreArticulo?')">
                                         <span class="glyphicon glyphicon-remove"></span>
@@ -124,10 +121,47 @@
 
                     </tbody>
                 </table>
+                <div class="pagination" >
+                    <span class="step-links">
+                        {% if art.has_previous %}
+                            <a href="?page={{ art.previous_page_number }}">Anterior</a>
+                        {% endif %}
 
+                        <span class="current">
+                            Page {{ art.number }} of {{ art.paginator.num_pages }}.
+                        </span>
+
+                        {% if art.has_next %}
+                            <a href="?page={{ art.next_page_number }}">Siguiente</a>
+                        {% endif %}
+                    </span>
+                </div>
 
             </div>
+
         </div>
+
+         <script language="javascript">
+            function oculta(id){
+
+                var elDiv = document.getElementById(id); //se define la variable "elDiv" igual a nuestro div
+                elDiv.style.display='none'; //damos un atributo display:none que oculta el div
+            }
+
+            function muestra(id){
+
+                var elDiv = document.getElementById(id); //se define la variable "elDiv" igual a nuestro div
+                elDiv.style.display='block';//damos un atributo display:block que  el div
+            }
+
+
+            window.onload = function(){
+            /*hace que se cargue la función */
+            /* "Mandamos como parametro el nombre de la Div para ocultar" */
+
+             }
+         </script>
+
     </body>
-</body>
+
 </html>

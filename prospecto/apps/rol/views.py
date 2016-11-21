@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -51,5 +52,17 @@ def eliminar_rol(request, rol_id):
 @permission_required('rol.add_rol')
 def listar_roles(request):
     lista_roles = Group.objects.all().order_by('name')
-    context = {'lista_roles':lista_roles}
-    return render(request, 'rol/listar_roles.html', context)
+    page = request.GET.get('page')
+    paginator = Paginator(lista_roles, 10)
+    try:
+        roles = paginator.page(page)
+    except PageNotAnInteger:
+        roles = paginator.page(1)
+    except EmptyPage:
+        roles = paginator.page(paginator.num_pages)
+
+
+
+
+
+    return render(request, 'rol/listar_roles.html', {'lista_roles':roles})

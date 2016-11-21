@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required, permission_required
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -8,7 +9,16 @@ from .forms import TargetForm
 
 @login_required
 def listar_target(request):
-    target= Target.objects.all().order_by('pk')
+    targe= Target.objects.all().order_by('pk')
+    page = request.GET.get('page')
+    paginator = Paginator(targe, 10)
+    try:
+        target = paginator.page(page)
+    except PageNotAnInteger:
+        target = paginator.page(1)
+    except EmptyPage:
+        target = paginator.page(paginator.num_pages)
+
     return render(request, 'target/listar_targets.html', {'target':target})
 
 @login_required

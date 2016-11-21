@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required, permission_required
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
@@ -11,7 +12,16 @@ from .forms import CamForm
 @login_required
 def listar_campanhas(request):
     cam = Campanha.objects.all().order_by('pk')
-    return render(request, 'campanha/listar_campanhas.html', {'cam':cam})
+    page = request.GET.get('page')
+    paginator = Paginator(cam, 10)
+    try:
+        camp = paginator.page(page)
+    except PageNotAnInteger:
+        camp = paginator.page(1)
+    except EmptyPage:
+        camp = paginator.page(paginator.num_pages)
+
+    return render(request, 'campanha/listar_campanhas.html', {'cam':camp})
 
 @login_required
 @permission_required('campanha.add_campanha')

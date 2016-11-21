@@ -1,5 +1,6 @@
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required, permission_required
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -10,7 +11,16 @@ from .forms import SupervisorForm
 @login_required
 @permission_required('supervisor.add_supervisor')
 def listar_supervisor(request):
-    supervisor= Supervisor.objects.all().order_by('pk')
+    super= Supervisor.objects.all().order_by('pk')
+    page = request.GET.get('page')
+    paginator = Paginator(super, 10)
+    try:
+        supervisor = paginator.page(page)
+    except PageNotAnInteger:
+        supervisor = paginator.page(1)
+    except EmptyPage:
+        supervisor = paginator.page(paginator.num_pages)
+
     return render(request, 'supervisor/listar_supervisores.html', {'supervisor':supervisor})
 
 @login_required

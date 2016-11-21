@@ -8,12 +8,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('vendedor', '0007_auto_20161116_1056'),
+        ('articulo', '0009_auto_20161116_1056'),
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='vendedor',
-            name='targetToCall',
+        migrations.AlterModelOptions(
+            name='articulo',
+            options={'permissions': (('can_view_articulo', 'Puede ver el articulo'),)},
         ),
     ]

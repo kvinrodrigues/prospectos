@@ -29,3 +29,7 @@ def home(request):
 def salir(request):
     logout(request)
     return render(request, 'inicio/autenticar.html')
+
+def view_menu(request):
+
+    return

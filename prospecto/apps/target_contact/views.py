@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required, permission_required
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -7,11 +8,20 @@ from .forms import Target_ContactForm
 from .models import Target_Contact
 
 
-
 @login_required
 def listar_contacto(request):
-    contact= Target_Contact.objects.all().order_by('id')
-    return render(request, 'target_contact/listar_contacto.html', {'contact':contact})
+    contacto = Target_Contact.objects.all().order_by('id')
+    page = request.GET.get('page')
+    paginator = Paginator(contacto, 10)
+    try:
+        contact = paginator.page(page)
+    except PageNotAnInteger:
+        contact = paginator.page(1)
+    except EmptyPage:
+        contact = paginator.page(paginator.num_pages)
+
+    return render(request, 'target_contact/listar_contacto.html', {'contact': contact})
+
 
 @login_required
 @permission_required('target_contact.add_target_contact')
@@ -23,8 +33,9 @@ def crear_contacto(request):
             return HttpResponseRedirect(reverse('target_contact:listar_contacto'))
 
     form = Target_ContactForm()
-    context = {'form':form}
+    context = {'form': form}
     return render(request, 'target_contact/crear_contacto.html', context)
+
 
 @login_required
 @permission_required('target_contact.change_target_contact')
@@ -41,6 +52,7 @@ def modificar_contacto(request, contacto_id):
 
     context = {'form': form, 'contacto_id': contacto_id}
     return render(request, 'target_contact/modificar_contacto.html', context)
+
 
 @login_required
 @permission_required('target_contact.remove_target_contact')

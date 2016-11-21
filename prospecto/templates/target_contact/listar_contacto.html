@@ -3,7 +3,6 @@
     <head>
 
     </head>
-
     <body>
         {% block content %}
                 <h2> </h2>
@@ -47,13 +46,30 @@
 
                     </tbody>
                 </table>
-        {% endblock %}
+                <div class="pagination" >
+                    <span class="step-links">
+                        {% if contact.has_previous %}
+                            <a href="?page={{ contact.previous_page_number }}">Anterior</a>
+                        {% endif %}
 
-        {% block sidebar %}
-            <a href="{%url 'target_contact:crear_contacto'%}">Nuevo</a><br><br>
-            <a href="{%url 'target_contact:listar_contacto'%}">Reporte</a><br><br>
+                        <span class="current">
+                            Page {{ contact.number }} of {{ contact.paginator.num_pages }}.
+                        </span>
 
-        {% endblock %}
+                        {% if contact.has_next %}
+                            <a href="?page={{ art.next_page_number }}">Siguiente</a>
+                        {% endif %}
+                    </span>
+                </div>
+
+
+                {% endblock %}
+
+                {% block sidebar %}
+                    <a href="{%url 'target_contact:crear_contacto'%}">Nuevo</a><br><br>
+                    <a href="{%url 'target_contact:listar_contacto'%}">Reporte</a><br><br>
+
+                {% endblock %}
 
 
     </body>

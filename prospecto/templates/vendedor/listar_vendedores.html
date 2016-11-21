@@ -104,8 +104,7 @@
                             <tr>
                                 <td> {{ vend.nombreVendedor }}     </td>
                                 <td><a href="{% url 'vendedor:modificar_vendedor' vend.id %}">
-                                    <span class="glyphicon glyphicon-pencil"></span></a>
-                                </td>
+                                    <span class="glyphicon glyphicon-pencil"></span></a></td>
                                 <td>
                                     <a href="{% url 'vendedor:eliminar_vendedores' vend.id%}"
                                        onClick="return confirm('Desea eliminar el vendedor: vend.nombreVendedor?')">
@@ -115,11 +114,27 @@
                                 <td><a href="{%url 'vendedor:listar_detalles'%}">Ver</a></td>
 
                             </tr>
-
                         {% endfor %}
 
                     </tbody>
                 </table>
+                <div class="pagination" >
+                    <span class="step-links">
+                        {% if vende.has_previous %}
+                            <a href="?page={{ vende.previous_page_number }}">Anterior</a>
+                        {% endif %}
+
+                        <span class="current">
+                            Page {{ vende.number }} of {{ vende.paginator.num_pages }}.
+                        </span>
+
+                        {% if vende.has_next %}
+                            <a href="?page={{ vende.next_page_number }}">Siguiente</a>
+                        {% endif %}
+                    </span>
+                </div>
+
+
             </div>
 
 
