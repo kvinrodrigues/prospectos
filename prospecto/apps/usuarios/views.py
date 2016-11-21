@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
@@ -88,6 +89,15 @@ def eliminar_usuario(request, usuario_id):
 @login_required
 @permission_required('auth.change_user')
 def listar_usuario(request):
-    lista_usuarios = User.objects.all().order_by('pk')
-    context = {'lista_usuarios': lista_usuarios}
-    return render(request, 'usuario/listar_usuarios.html', context)
+    lista_user = User.objects.all().order_by('pk')
+    page = request.GET.get('page')
+    paginator = Paginator(lista_user, 10)
+    try:
+        lista_usuarios = paginator.page(page)
+    except PageNotAnInteger:
+        lista_usuarios = paginator.page(1)
+    except EmptyPage:
+        lista_usuarios = paginator.page(paginator.num_pages)
+
+
+    return render(request, 'usuario/listar_usuarios.html', {'lista_usuarios': lista_usuarios})

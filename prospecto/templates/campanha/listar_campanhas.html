@@ -1,137 +1,145 @@
 <html>
     <head>
-        <title>Artículos Disponibles</title>
+                <title>Campanhas</title>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                <script language="javascript">
+                    function doSearch()
+                    {
+                        var tableReg = document.getElementById('datos');
+                        var searchText = document.getElementById('searchTerm').value.toLowerCase();
+                        var cellsOfRow="";
+                        var found=false;
+                        var compareWith="";
+
+                        // Recorremos todas las filas con contenido de la tabla
+                        for (var i = 1; i < tableReg.rows.length; i++)
+                        {
+                            cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+                            found = false;
+                            // Recorremos todas las celdas
+                            for (var j = 0; j < cellsOfRow.length && !found; j++)
+                            {
+                                compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+                                // Buscamos el texto en el contenido de la celda
+                                if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
+                                {
+                                    found = true;
+                                }
+                            }
+                            if(found)
+                            {
+                                tableReg.rows[i].style.display = '';
+                            } else {
+                                // si no ha encontrado ninguna coincidencia, esconde la
+                                // fila de la tabla
+                                tableReg.rows[i].style.display = 'none';
+                            }
+                        }
+                    }
+                </script>
+
+                <style>
+                    #datos	{border:1px solid #ccc;padding:10px;}
+                    #datos tr:nth-child(even) {background:#ccc;}
+                    #datos td {padding:5px;}
+                </style>
     </head>
+    <body>
+            <div class="row">
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="{% url 'target_contact:crear_contacto' %}">TeleMarketing</a>
+                        </div>
+                        <div class="pull-right">
+                            <li class="dropdown"><a class="navbar-brand" data-toggle="dropdown" href="#" >Sistema <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><br></li>
+                                    <li ><a href="{% url 'usuarios:listar_usuarios' %}">Usuarios</a>           </li>
+                                    <li ><a href="{% url 'auditoria:listar_auditoria' %}">Historial</a>           </li>
+                                    <li><a href="{%url 'rol:listar_roles'%}">Roles</a></li>
+                                    <li><a href="{% url 'inicio:salir' %}">Logout</a></li>
+                                </ul>
+                            </li>
 
-     <body>
-       <head>
-        <title>Campanhas</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script language="javascript">
-		    function doSearch()
-		    {
-			    var tableReg = document.getElementById('datos');
-			    var searchText = document.getElementById('searchTerm').value.toLowerCase();
-			    var cellsOfRow="";
-			    var found=false;
-			    var compareWith="";
+                        </div>
 
-			    // Recorremos todas las filas con contenido de la tabla
-			    for (var i = 1; i < tableReg.rows.length; i++)
-			    {
-				    cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
-				    found = false;
-				    // Recorremos todas las celdas
-				    for (var j = 0; j < cellsOfRow.length && !found; j++)
-				    {
-					    compareWith = cellsOfRow[j].innerHTML.toLowerCase();
-					    // Buscamos el texto en el contenido de la celda
-					    if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
-					    {
-						    found = true;
-					    }
-				    }
-				    if(found)
-				    {
-					    tableReg.rows[i].style.display = '';
-				    } else {
-					    // si no ha encontrado ninguna coincidencia, esconde la
-					    // fila de la tabla
-					    tableReg.rows[i].style.display = 'none';
-				    }
-			    }
-		    }
-	    </script>
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="{% url 'inicio:home' %}">Home</a></li>
+                            <li><a href="{% url 'articulo:listar_articulos' %}">Articulos</a></li>
+                            <li><a href="{%url 'vendedor:listar_vendedores'%}">Vendedores</a></li>
+                            <li><a href="{%url 'supervisor:listar_supervisores'%}">Supervisores</a></li>
+                            <li><a href="{%url 'target:listar_targets'%}">Target</a></li>
 
-	    <style>
-		    #datos	{border:1px solid #ccc;padding:10px;}
-		    #datos tr:nth-child(even) {background:#ccc;}
-		    #datos td {padding:5px;}
-	    </style>
-        </head>
-       <body>
-        <div class="row">
-            <nav class="navbar navbar-inverse">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-				        <a class="navbar-brand" href="{% url 'target_contact:crear_contacto' %}">TeleMarketing</a>
-			        </div>
-                    <div class="pull-right">
-				        <li class="dropdown"><a class="navbar-brand" data-toggle="dropdown" href="#" >Sistema <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><br></li>
-                                <li ><a href="{% url 'usuarios:listar_usuarios' %}">Usuarios</a>           </li>
-                                <li ><a href="{% url 'auditoria:listar_auditoria' %}">Historial</a>           </li>
-                                <li><a href="{%url 'rol:listar_roles'%}">Roles</a></li>
-                                <li><a href="{% url 'inicio:salir' %}">Logout</a></li>
-                            </ul>
-                        </li>
-
-			        </div>
-
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="{% url 'inicio:home' %}">Home</a></li>
-                        <li><a href="{% url 'articulo:listar_articulos' %}">Articulos</a></li>
-                        <li><a href="{%url 'vendedor:listar_vendedores'%}">Vendedores</a></li>
-                        <li><a href="{%url 'supervisor:listar_supervisores'%}">Supervisores</a></li>
-                        <li><a href="{%url 'target:listar_targets'%}">Target</a></li>
-
-                        <li><a href="{%url 'campanha:listar_campanhas'%}">Campañas</a></li>
-                    </ul>
+                            <li><a href="{%url 'campanha:listar_campanhas'%}">Campañas</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="col-md-1">
+                    <a href="{%url 'campanha:crear_campanha'%}">Nuevo</a><br><br>
+                    <a href="{%url 'campanha:listar_campanhas'%}">Reporte</a><br><br>
                 </div>
-            </nav>
-            <div class="col-md-1">
-                <a href="{%url 'campanha:crear_campanha'%}">Nuevo</a><br><br>
-                <a href="{%url 'campanha:listar_campanhas'%}">Reporte</a><br><br>
-            </div>
 
-            <div class="col-md-9">
-                <h2>Campanhas</h2>
-                <form>
-                       Buscar: <input id="searchTerm" type="text" onkeyup="doSearch()" />
-	            </form>
+                <div class="col-md-9">
+                    <h2>Campanhas</h2>
+                    <form>
+                           Buscar: <input id="searchTerm" type="text" onkeyup="doSearch()" />
+                    </form>
 
-                <table id="datos" class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Articulos</th>
-                            <th>Modificar</th>
-                            <th>Eliminar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for cam in cam %}
+                    <table id="datos" class="table table-hover">
+                        <thead>
                             <tr>
-                                <td> {{ cam.nombreCampanha }}     </td>
-                                <td> {{ cam.arti }}  </td>
-                                <td><a href="{% url 'campanha:modificar_campanha' cam.id %}">
-                                    <span class="glyphicon glyphicon-pencil"></span></a></td>
-                                <td>
-
-
-
-
-                                    <a href="{% url 'campanha:eliminar_campanha' cam.id%}"
-                                       onClick="return confirm('Desea eliminar la campanha: cam.nombreCampanha?')">
-                                        <span class="glyphicon glyphicon-remove"></span>
-                                    </a>
-                                </td>
+                                <th>Nombre</th>
+                                <th>Modificar</th>
+                                <th>Eliminar</th>
                             </tr>
-                        {% endfor %}
+                        </thead>
+                        <tbody>
+                            {% for cam in cam %}
+                                <tr>
+                                    <td> {{ cam.nombreCampanha }}     </td>
 
-                    </tbody>
-                </table>
+                                    <td><a href="{% url 'campanha:modificar_campanha' cam.id %}">
+                                        <span class="glyphicon glyphicon-pencil"></span></a></td>
+                                    <td>
+
+                                        <a href="{% url 'campanha:eliminar_campanha' cam.id%}"
+                                           onClick="return confirm('Desea eliminar la campanha: cam.nombreCampanha?')">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                    <div class="pagination" >
+                        <span class="step-links">
+                            {% if cam.has_previous %}
+                                <a href="?page={{ cam.previous_page_number }}">Anterior</a>
+                            {% endif %}
+
+                            <span class="current">
+                                Page {{ cam.number }} of {{ cam.paginator.num_pages }}.
+                            </span>
+
+                            {% if cam.has_next %}
+                                <a href="?page={{ cam.next_page_number }}">Siguiente</a>
+                            {% endif %}
+                        </span>
+                    </div>
 
 
 
-</div>
+
+
+                </div>
             </div>
     </body>
-     </body>
+
 
 </html>

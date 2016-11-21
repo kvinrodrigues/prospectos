@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required, permission_required
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -9,7 +10,16 @@ from .forms import VendedorForm
 @permission_required('vendedor.add_vendedor')
 def listar_vendedor(request):
     vende= Vendedor.objects.all().order_by('pk')
-    return render(request, 'vendedor/listar_vendedores.html', {'vende':vende})
+    page = request.GET.get('page')
+    paginator = Paginator(vende, 10)
+    try:
+        vendes = paginator.page(page)
+    except PageNotAnInteger:
+        vendes = paginator.page(1)
+    except EmptyPage:
+        vendes = paginator.page(paginator.num_pages)
+
+    return render(request, 'vendedor/listar_vendedores.html', {'vende':vendes})
 @login_required
 @permission_required('vendedor.add_vendedor')
 def crear_vendedor(request):

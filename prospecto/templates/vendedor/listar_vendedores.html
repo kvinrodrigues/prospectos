@@ -120,6 +120,23 @@
 
                     </tbody>
                 </table>
+                <div class="pagination" >
+                    <span class="step-links">
+                        {% if vende.has_previous %}
+                            <a href="?page={{ vende.previous_page_number }}">Anterior</a>
+                        {% endif %}
+
+                        <span class="current">
+                            Page {{ vende.number }} of {{ vende.paginator.num_pages }}.
+                        </span>
+
+                        {% if vende.has_next %}
+                            <a href="?page={{ vende.next_page_number }}">Siguiente</a>
+                        {% endif %}
+                    </span>
+                </div>
+
+
             </div>
 
 
