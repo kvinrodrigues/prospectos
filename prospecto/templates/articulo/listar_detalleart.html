@@ -1,6 +1,10 @@
 <html>
     <head>
-        <title>Vendedores</title>
+        <title>Artículos Disponibles</title>
+    </head>
+
+       <head>
+        <title>Articulos</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -47,7 +51,7 @@
 		    #datos tr:nth-child(even) {background:#ccc;}
 		    #datos td {padding:5px;}
 	    </style>
-    </head>
+        </head>
     <body>
         <div class="row">
             <nav class="navbar navbar-inverse">
@@ -56,7 +60,7 @@
 				        <a class="navbar-brand" href="{% url 'target_contact:crear_contacto' %}">TeleMarketing</a>
 			        </div>
                     <div class="pull-right">
-				        <li class="dropdown"><a class="navbar-brand" data-toggle="dropdown" href="#" >Sistema <span class="caret"></span></a>
+				        <li class="dropdown"><0a class="navbar-brand" data-toggle="dropdown" href="#" >Sistema <span class="caret"></span></0a>
                             <ul class="dropdown-menu">
                                 <li><br></li>
                                 <li ><a href="{% url 'usuarios:listar_usuarios' %}">Usuarios</a>           </li>
@@ -79,48 +83,69 @@
                     </ul>
                 </div>
             </nav>
-            <div class="col-md-1">
-                    <center><a href="{%url 'vendedor:crear_vendedores'%}">Nuevo</a><br><br></center>
-                    <center><a href="{%url 'vendedor:listar_vendedores'%}">Reporte</a><br><br></center>
+            <div class="col-md-1" id="newArt">
+                         <a href="{%url  'articulo:crear_articulos'%}"><center><button type="button" class="btn btn-default">Nuevo</button></center></a>
             </div>
 
             <div class="col-md-9">
-                <h2>Vendedores</h2>
+
+
+                <h2>Articulos</h2>
                 <form>
-                       Buscar: <input id="searchTerm" type="text" onkeyup="doSearch()" />
+                       <input id="searchTerm" type="text" onkeyup="doSearch()" />
 	            </form>
 
-                <table id="datos" class="table table-hover">
-                    <thead>
-                          {% for vend in vende %}
-                        <tr> <th>Nombre</th>          <td> {{ vend.nombreVendedor }} </td></tr>
-                        <tr> <th>Supervisor</th>      <td> {{ vend.vendedor_supervisor }} </td></tr>
-                        <tr> <th>Telefono</th>        <td> {{ vend.telefonoVendedor }}</td></tr>
-                    </thead>
-                        {% endfor %}
+            <table id="datos" class="table table-hover">
+                            <thead>
+                               {% for arti in art %}
+                                <tr> <th>Nombre</th>     <td> {{ arti.nombreArticulo }}   </td> </tr>
+                                <tr> <th>Tipo</th>       <td>{{ arti.tipoArticulo }}      </td></tr>
+                                <tr> <th>Monto</th>      <td>{{ arti.montoArticulo }}     </td></tr>
 
-                </table><div class="pagination" >
+                            </thead>
+                                {% endfor %}
+
+                        </table><div class="pagination" >
                     <span class="step-links">
-                        {% if vende.has_previous %}
-                            <a href="?page={{ vende.previous_page_number }}">Anterior</a>
+                        {% if art.has_previous %}
+                            <a href="?page={{ art.previous_page_number }}">Anterior</a>
                         {% endif %}
 
                         <span class="current">
-                            Page {{ vende.number }} of {{ vende.paginator.num_pages }}.
+                            Page {{ art.number }} of {{ art.paginator.num_pages }}.
                         </span>
 
-                        {% if vende.has_next %}
-                            <a href="?page={{ vende.next_page_number }}">Siguiente</a>
+                        {% if art.has_next %}
+                            <a href="?page={{ art.next_page_number }}">Siguiente</a>
                         {% endif %}
                     </span>
                 </div>
 
-
             </div>
-
 
         </div>
 
+         <script language="javascript">
+            function oculta(id){
+
+                var elDiv = document.getElementById(id); //se define la variable "elDiv" igual a nuestro div
+                elDiv.style.display='none'; //damos un atributo display:none que oculta el div
+            }
+
+            function muestra(id){
+
+                var elDiv = document.getElementById(id); //se define la variable "elDiv" igual a nuestro div
+                elDiv.style.display='block';//damos un atributo display:block que  el div
+            }
+
+
+            window.onload = function(){
+            /*hace que se cargue la función */
+            /* "Mandamos como parametro el nombre de la Div para ocultar" */
+
+             }
+         </script>
 
     </body>
+
 </html>

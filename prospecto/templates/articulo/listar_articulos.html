@@ -101,6 +101,7 @@
                             <th>Nombre</th>
                             <th>Modificar</th>
                             <th>Eliminar</th>
+                            <th>Detalles</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -116,6 +117,7 @@
                                         <span class="glyphicon glyphicon-remove"></span>
                                     </a>
                                 </td>
+                                <td><a href="{%url 'articulo:listar_detalleart' arti.id%}">Ver</a></td>
                             </tr>
                         {% endfor %}
 

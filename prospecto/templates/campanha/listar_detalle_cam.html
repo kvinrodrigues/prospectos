@@ -92,32 +92,14 @@
 
                     <table id="datos" class="table table-hover">
                         <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Modificar</th>
-                                <th>Eliminar</th>
-                                <th>Detalles</th>
-                            </tr>
+                            <tr> {% for cam in cam %}
+                                <th>Nombre</th>                 <td> {{ cam.nombreCampanha }} </td></tr>
+                                <tr><th>Vendedor</th>           <td>{{ cam.vende }} </td></tr>
+                                <tr><th>Articulos</th>          <td>{{ cam.arti}} </td></tr>
+
                         </thead>
-                        <tbody>
-                            {% for cam in cam %}
-                                <tr>
-                                    <td> {{ cam.nombreCampanha }}     </td>
-
-                                    <td><a href="{% url 'campanha:modificar_campanha' cam.id %}">
-                                        <span class="glyphicon glyphicon-pencil"></span></a></td>
-                                    <td>
-
-                                        <a href="{% url 'campanha:eliminar_campanha' cam.id%}"
-                                           onClick="return confirm('Desea eliminar la campanha: cam.nombreCampanha?')">
-                                            <span class="glyphicon glyphicon-remove"></span>
-                                        </a>
-                                    </td>
-                                    <td><a href="{%url 'campanha:listar_detalle_cam' cam.id%}">Ver</a></td>
-                                </tr>
                             {% endfor %}
 
-                        </tbody>
                     </table>
                     <div class="pagination" >
                         <span class="step-links">

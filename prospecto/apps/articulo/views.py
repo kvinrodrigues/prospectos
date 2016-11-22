@@ -60,5 +60,17 @@ def eliminar_articulo(request, id):
     arti.delete()
     return HttpResponseRedirect(reverse_lazy('articulo:listar_articulos'))
 
+@login_required
+def listar_detallearti(request, id):
+    arte = Articulo.objects.all().order_by('pk')
+    page = request.GET.get('page')
+    paginator = Paginator(arte, 10)
+    try:
+        art = paginator.page(page)
+    except PageNotAnInteger:
+        art = paginator.page(1)
+    except EmptyPage:
+        art = paginator.page(paginator.num_pages)
 
+    return render(request, 'articulo/listar_detalleart.html', {'art': art})
 
