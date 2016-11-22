@@ -80,8 +80,8 @@
                 </div>
             </nav>
             <div class="col-md-1">
-                    <center><a href="{%url 'vendedor:crear_vendedores'%}">Nuevo</a><br><br></center>
-                    <center><a href="{%url 'vendedor:listar_vendedores'%}">Reporte</a><br><br></center>
+                    <center><a href="{%url 'vendedor:crear_vendedores'%}"><button type="button" class="btn btn-default">Nuevo</button></a><br><br></center>
+                    <center><a href="{%url 'vendedor:listar_vendedores'%}"><button type="button" class="btn btn-default">Reporte</button></a><br><br></center>
             </div>
 
             <div class="col-md-9">
@@ -111,7 +111,7 @@
                                         <span class="glyphicon glyphicon-remove"></span>
                                     </a>
                                 </td>
-                                <td><a href="{%url 'vendedor:listar_detalles'%}">Ver</a></td>
+                                <td><a href="{%url 'vendedor:listar_detalles' vend.id%}"><button type="button" class="btn btn-default">Ver</button></a></td>
 
                             </tr>
                         {% endfor %}

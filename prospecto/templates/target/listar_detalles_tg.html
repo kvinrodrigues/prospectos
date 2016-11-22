@@ -161,53 +161,17 @@
 
                     <table id="datos" class="table table-hover">
                         <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Telefono</th>
-                                <th>Origen</th>
-                                <th>Estado</th>
-                                <th>Modificar</th>
-                                <th>Eliminar</th>
-                                <th>Detalles</th>
-                            </tr>
+                                <tr><th>Nombre</th>         <td> {{ target.nombreTarget  }}   </td></tr>
+                                <tr><th>CI: </th>           <td> {{ target.DNITarget  }}   </td></tr>
+                                <tr><th>RUC: </th>          <td> {{ target.RUCTarget  }}   </td></tr>
+                                <tr><th>Direccion </th>     <td> {{ target.DireccionTarget  }}   </td></tr>
+                                <tr><th>Email </th>         <td> {{ target.EmailTarget  }}   </td></tr>
+                                <tr><th>Telefono</th>       <td> {{ target.telefonoTarget }}  </td></tr>
+                                <tr><th>Origen</th>         <td> {{ target.origenTarget }}    </td></tr>
+                                <tr><th>Estado</th>         <td> {{ target.estadoTarget }}    </td></tr>
                         </thead>
-                        <tbody>
-                             {% for tg in target %}
-                                <tr>
-                                    <td> {{ tg.nombreTarget  }}   </td>
-                                    <td> {{ tg.telefonoTarget }}  </td>
-                                    <td> {{ tg.origenTarget }}    </td>
-                                    <td> {{ tg.estadoTarget }}    </td>
-                                    <td><a href="{% url 'target:modificar_targets' tg.id %}">
-                                        <span class="glyphicon glyphicon-pencil"></span></a></td>
-                                   <td>
-
-                                        <a href="{% url 'target:eliminar_targets' tg.id%}"
-                                           onClick="return confirm('Desea eliminar el supervisor: tg.nombreTarget')">
-                                            <span class="glyphicon glyphicon-remove"></span>
-                                        </a>
-                                    </td>
-                                <td><a href="{%url  'target:listar_detalles_tg' tg.id%}"><center><button type="button" class="btn btn-default">Ver</button></center></a></td>
-                                </tr>
-                            {% endfor %}
-
-                        </tbody>
                     </table>
-                    <div class="pagination" >
-                    <span class="step-links">
-                        {% if target.has_previous %}
-                            <a href="?page={{ target.previous_page_number }}">Anterior</a>
-                        {% endif %}
 
-                        <span class="current">
-                            Page {{ target.number }} of {{ target.paginator.num_pages }}.
-                        </span>
-
-                        {% if target.has_next %}
-                            <a href="?page={{ target.next_page_number }}">Siguiente</a>
-                        {% endif %}
-                    </span>
-                </div>
 
 
 

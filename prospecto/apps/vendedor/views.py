@@ -57,6 +57,6 @@ def eliminar_vendedor(request, id):
     vend.delete()
     return HttpResponseRedirect(reverse_lazy('vendedor:listar_vendedores'))
 @login_required
-def listar_detalle(request):
-    vende = Vendedor.objects.all().order_by('pk')
+def listar_detalle(request, vendedor_id):
+    vende = Vendedor.objects.get(pk=vendedor_id)
     return render(request, 'vendedor/listar_detalles.html', {'vende':vende})

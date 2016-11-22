@@ -57,3 +57,8 @@ def eliminar_target(request, id):
     target.delete()
     return HttpResponseRedirect(reverse_lazy('target:listar_targets'))
 
+@login_required
+def listar_detalles_Tg(request, target_id):
+    target= Target.objects.get(pk=target_id)
+
+    return render(request, 'target/listar_detalles_tg.html', {'target':target})

@@ -12,7 +12,7 @@ urlpatterns = [
 
     url(r'^eliminar_campanha/(?P<id>\d+)/$', views.eliminar_campanha, name='eliminar_campanha'),
 
-    url(r'^listar_detalle_cam/(?P<id>\d+)/$', views.listar_detalle_Cam, name='listar_detalle_cam')
+    url(r'^listar_detalle_cam/(?P<campanha_id>\d+)/$', views.listar_detalle_Cam, name='listar_detalle_cam')
 
 
 

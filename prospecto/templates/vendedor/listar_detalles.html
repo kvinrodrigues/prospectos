@@ -80,8 +80,8 @@
                 </div>
             </nav>
             <div class="col-md-1">
-                    <center><a href="{%url 'vendedor:crear_vendedores'%}">Nuevo</a><br><br></center>
-                    <center><a href="{%url 'vendedor:listar_vendedores'%}">Reporte</a><br><br></center>
+                    <center><a href="{%url 'vendedor:crear_vendedores'%}"><button type="button" class="btn btn-default">Nuevo</button></a><br><br></center>
+                    <center><a href="{%url 'vendedor:listar_vendedores'%}"><button type="button" class="btn btn-default">Reporte</button></a><br><br></center>
             </div>
 
             <div class="col-md-9">
@@ -92,38 +92,11 @@
 
                 <table id="datos" class="table table-hover">
                         <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Supervisor</th>
-                                <th>Telefono</th>
-                            </tr>
+                               <tr> <th>Nombre</th><td>         {{ vende.nombreVendedor }} </td></tr>
+                               <tr> <th>Supervisor</th>    <td> {{ vende.vendedor_supervisor }} </td></tr>
+                               <tr> <th>Telefono</th><td>       {{ vende.telefonoVendedor }}</td></tr>
                         </thead>
-                        <tbody>
-                            {% for vend in vende %}
-                                <tr>
-                                    <td> {{ vend.nombreVendedor }} </td>
-                                    <td> {{ vend.vendedor_supervisor }} </td>
-                                    <td> {{ vend.telefonoVendedor }}</td>
-                                </tr>
-                            {% endfor %}
-                    </tbody>
                 </table>
-                <div class="pagination" >
-                    <span class="step-links">
-                        {% if vende.has_previous %}
-                            <a href="?page={{ vende.previous_page_number }}">Anterior</a>
-                        {% endif %}
-
-                        <span class="current">
-                            Page {{ vende.number }} of {{ vende.paginator.num_pages }}.
-                        </span>
-
-                        {% if vende.has_next %}
-                            <a href="?page={{ vende.next_page_number }}">Siguiente</a>
-                        {% endif %}
-                    </span>
-                </div>
-
 
             </div>
 
