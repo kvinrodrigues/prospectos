@@ -1,6 +1,5 @@
 from django.db import models
 
-from apps.target.models import Target
 from apps.supervisor.models import Supervisor
 
 

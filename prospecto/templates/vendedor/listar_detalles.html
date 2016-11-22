@@ -5,23 +5,25 @@
     <title>Title</title>
 </head>
 <body>
-<table id="datos" class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Supervisor</th>
-                            <th>Telefono</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for vend in vende %}
+                {% block content %}
+                        <table id="datos" class="table table-hover">
+                        <thead>
                             <tr>
-                                <td> {{ vend.nombreVendedor }} </td>
-                                <td> {{ vend.vendedor_supervisor }} </td>
-                                <td> {{ vend.telefonoVendedor }}</td>
+                                <th>Nombre</th>
+                                <th>Supervisor</th>
+                                <th>Telefono</th>
                             </tr>
-                        {% endfor %}
+                        </thead>
+                        <tbody>
+                            {% for vend in vende %}
+                                <tr>
+                                    <td> {{ vend.nombreVendedor }} </td>
+                                    <td> {{ vend.vendedor_supervisor }} </td>
+                                    <td> {{ vend.telefonoVendedor }}</td>
+                                </tr>
+                            {% endfor %}
                     </tbody>
                 </table>
+            {% endblock %}
 </body>
 </html>

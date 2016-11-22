@@ -6,6 +6,31 @@
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <style>
+               @media (min-width: 768px) {
+              .sidebar-nav .navbar .navbar-collapse {
+                padding: 0;
+                max-height: none;
+              }
+              .sidebar-nav .navbar ul {
+                float: none;
+              }
+              .sidebar-nav .navbar ul:not {
+                display: block;
+              }
+              .sidebar-nav .navbar li {
+                float: none;
+                display: block;
+              }
+              .sidebar-nav .navbar li a {
+                padding-top: 12px;
+                padding-bottom: 12px;
+              }
+}
+
+            </style>
+
+
     </head>
     <body>
         <div class="row">
@@ -45,7 +70,29 @@
         </div>
         <div class="row">
             <div class="col-md-1">
-                <div id="sidebar"><center><h5>{% block sidebar %}{% endblock %}</h5></center></div>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="sidebar-nav">
+                      <div class="navbar navbar-default" role="navigation">
+                        <div class="navbar-header">
+                          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                          </button>
+                          <span class="visible-xs navbar-brand">Sidebar menu</span>
+                        </div>
+                        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                          <ul class="nav navbar-nav">
+                            <center>{% block sidebar %}{% endblock %}</center>
+                          </ul>
+                            </div><!--/.nav-collapse -->
+                          </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
             <div class="col-md-9">
