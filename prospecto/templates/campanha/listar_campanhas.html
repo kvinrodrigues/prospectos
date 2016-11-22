@@ -80,8 +80,8 @@
                     </div>
                 </nav>
                 <div class="col-md-1">
-                    <a href="{%url 'campanha:crear_campanha'%}">Nuevo</a><br><br>
-                    <a href="{%url 'campanha:listar_campanhas'%}">Reporte</a><br><br>
+                   <a href="{%url  'campanha:listar_campanhas'%}"><center><button type="button" class="btn btn-default">Reporte</button></center></a><br>
+                    <a href="{%url  'campanha:crear_campanha'%}"><center><button type="button" class="btn btn-default">Nuevo</button></center></a>
                 </div>
 
                 <div class="col-md-9">
@@ -100,6 +100,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            </tr>
                             {% for cam in cam %}
                                 <tr>
                                     <td> {{ cam.nombreCampanha }}     </td>
@@ -113,7 +114,8 @@
                                             <span class="glyphicon glyphicon-remove"></span>
                                         </a>
                                     </td>
-                                    <td><a href="{%url 'campanha:listar_detalle_cam' cam.id%}">Ver</a></td>
+                                    <td><a href="{%url  'campanha:listar_detalle_cam' cam.id%}"><center><button type="button" class="btn btn-default">Ver</button></center></a>
+</td>
                                 </tr>
                             {% endfor %}
 

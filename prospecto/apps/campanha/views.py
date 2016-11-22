@@ -60,9 +60,8 @@ def eliminar_campanha(request, id):
     cam.delete()
     return HttpResponseRedirect(reverse_lazy('campanha:listar_campanhas'))
 
-
-
-def listar_detalle_Cam(request,id):
+@login_required
+def listar_detalle_Cam(request, id):
     cam = Campanha.objects.all().order_by('pk')
     page = request.GET.get('page')
     paginator = Paginator(cam, 10)
@@ -74,5 +73,6 @@ def listar_detalle_Cam(request,id):
         camp = paginator.page(paginator.num_pages)
 
     return render(request, 'campanha/listar_detalle_cam.html', {'cam':camp})
+
 
 

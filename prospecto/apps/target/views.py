@@ -56,3 +56,4 @@ def eliminar_target(request, id):
     target = Target.objects.get(pk=id)
     target.delete()
     return HttpResponseRedirect(reverse_lazy('target:listar_targets'))
+

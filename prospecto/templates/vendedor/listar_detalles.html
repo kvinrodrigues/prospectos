@@ -91,15 +91,24 @@
 	            </form>
 
                 <table id="datos" class="table table-hover">
-                    <thead>
-                          {% for vend in vende %}
-                        <tr> <th>Nombre</th>          <td> {{ vend.nombreVendedor }} </td></tr>
-                        <tr> <th>Supervisor</th>      <td> {{ vend.vendedor_supervisor }} </td></tr>
-                        <tr> <th>Telefono</th>        <td> {{ vend.telefonoVendedor }}</td></tr>
-                    </thead>
-                        {% endfor %}
-
-                </table><div class="pagination" >
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Supervisor</th>
+                                <th>Telefono</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for vend in vende %}
+                                <tr>
+                                    <td> {{ vend.nombreVendedor }} </td>
+                                    <td> {{ vend.vendedor_supervisor }} </td>
+                                    <td> {{ vend.telefonoVendedor }}</td>
+                                </tr>
+                            {% endfor %}
+                    </tbody>
+                </table>
+                <div class="pagination" >
                     <span class="step-links">
                         {% if vende.has_previous %}
                             <a href="?page={{ vende.previous_page_number }}">Anterior</a>

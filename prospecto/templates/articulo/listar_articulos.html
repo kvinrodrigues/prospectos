@@ -25,15 +25,15 @@
 				    cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
 				    found = false;
 				    // Recorremos todas las celdas
-				    for (var j = 0; j < cellsOfRow.length && !found; j++)
-				    {
+				    var j = 0;
+
 					    compareWith = cellsOfRow[j].innerHTML.toLowerCase();
 					    // Buscamos el texto en el contenido de la celda
 					    if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
 					    {
 						    found = true;
 					    }
-				    }
+
 				    if(found)
 				    {
 					    tableReg.rows[i].style.display = '';
@@ -84,7 +84,8 @@
                 </div>
             </nav>
             <div class="col-md-1" id="newArt">
-                         <a href="{%url  'articulo:crear_articulos'%}"><center><button type="button" class="btn btn-default">Nuevo</button></center></a>
+                    <a href="{%url  'articulo:listar_articulos'%}"><center><button type="button" class="btn btn-default">Reporte</button></center></a><br>
+                    <a href="{%url  'articulo:crear_articulos'%}"><center><button type="button" class="btn btn-default">Nuevo</button></center></a>
             </div>
 
             <div class="col-md-9">
@@ -117,7 +118,7 @@
                                         <span class="glyphicon glyphicon-remove"></span>
                                     </a>
                                 </td>
-                                <td><a href="{%url 'articulo:listar_detalleart' arti.id%}">Ver</a></td>
+                                <td><a href="{%url  'articulo:listar_detalleart' arti.id%}"><center><button type="button" class="btn btn-default">Ver</button></center></a></td>
                             </tr>
                         {% endfor %}
 
