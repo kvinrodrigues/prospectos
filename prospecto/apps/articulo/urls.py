@@ -11,7 +11,7 @@ urlpatterns = [
     url(r'^modificar_articulos/(?P<articulo_id>\d+)/$', views.modificar_articulo, name='modificar_articulos'),
 
     url(r'^eliminar_articulos/(?P<id>\d+)/$', views.eliminar_articulo, name='eliminar_articulos'),
-    url(r'^listar_detalleart/(?P<id>\d+)/$', views.listar_detallearti, name='listar_detalleart')
+    url(r'^listar_detalleart/(?P<articulo_id>\d+)/$', views.listar_detallearti, name='listar_detalleart')
 
 
 
