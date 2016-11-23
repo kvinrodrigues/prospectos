@@ -93,7 +93,6 @@
                     <table id="datos" class="table table-hover">
                         <thead>
                                 <th>Nombre</th>                 <td> {{ cam.nombreCampanha }} </td></tr>
-
                                 <tr><th>Vendedor</th>               {% for cmp in cam.vende.all %}<td>{{ cmp }}</td> {% endfor %} </td></tr>
                                 <tr><th>Articulos</th>              {% for cmp in cam.arti.all %}<td>{{ cmp }}</td><br> {% endfor %} </td></tr>
                                 <tr><th>Vendedor</th>           <td>{{ cam.vende }} </td></tr>

@@ -10,7 +10,7 @@ class Target (models.Model):
     telefonoTarget = models.IntegerField()
     origenTarget = models.CharField(max_length=80)
     estadoTarget = models.NullBooleanField()
-    vende=models.ForeignKey(Vendedor,null=True)
+    vende=models.ForeignKey(Vendedor,null=True,blank=True)
     def __str__(self):
         return self.nombreTarget
 
