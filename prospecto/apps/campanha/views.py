@@ -4,10 +4,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.urls import reverse_lazy
-
 from apps.campanha.models import Campanha
-from .forms import CamForm
-
+from .forms import CamForm, CamAllForm
 
 @login_required
 def listar_campanhas(request):
@@ -41,10 +39,10 @@ def crear_campanha(request):
 def modificar_campanha(request, campanha_id):
 
     campanha = Campanha.objects.get(pk=campanha_id)
-    form = CamForm(instance=campanha)
+    form = CamAllForm(instance=campanha)
 
     if request.method == 'POST':
-        form = CamForm(request.POST, instance=campanha)
+        form = CamAllForm(request.POST, instance=campanha)
 
         if form.is_valid():
             form.save()

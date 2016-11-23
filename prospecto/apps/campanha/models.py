@@ -10,6 +10,6 @@ class Campanha (models.Model):
     descripcionCampanha = models.TextField()
     fecha_inicio_Campanha = models.DateField()
     fecha_fin_Campanha = models.DateField()
-    porcentajeCampanha = models.IntegerField()
+    porcentajeCampanha = models.IntegerField(null=True)
     def __str__(self):
         return self.nombreCampanha
