@@ -58,6 +58,13 @@
                                         <td>{{ tgt }}</td>
                                     </tr>
                                {% endfor %}
+                            <tr><th>Campanhas</th><td>&#160;</td></tr>
+                            {% for tgt in campanha_vendedor.all %}
+                                    <tr>
+                                        <td></td>
+                                        <td>{{ tgt }}</td>
+                                    </tr>
+                               {% endfor %}
                                 <tr> <th>Telefono</th><td>       {{ vende.telefonoVendedor }}</td></tr>
 
 

@@ -4,6 +4,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.urls import reverse_lazy
+
+from apps.campanha.models import Campanha
 from apps.vendedor.models import Vendedor
 from apps.target.models import Target
 from .forms import VendedorForm
@@ -69,7 +71,10 @@ def listar_detalle(request, vendedor_id):
     vendedor = Vendedor.objects.get(pk=vendedor_id)
     try:
         target_vendedor = Target.objects.filter(vende=vendedor_id)
+        campanha_vendedor = Campanha.objects.filter(vende=vendedor_id)
     except Target.DoesNotExist:
         target_vendedor=None
-    context = {'target_vendedor': target_vendedor, 'vende': vendedor}
+    except Campanha.DoesNotExist:
+        campanha_vendedor=None
+    context = {'target_vendedor': target_vendedor, 'vende': vendedor, 'campanha_vendedor': campanha_vendedor, 'vende': vendedor}
     return render(request, 'vendedor/listar_detalles.html', context)

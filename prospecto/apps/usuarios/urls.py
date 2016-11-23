@@ -16,6 +16,7 @@ urlpatterns = [
     url(r'^eliminar_usuario/(?P<usuario_id>\d+)/$', views.eliminar_usuario, name='eliminar_usuario'),
 
     # ej: usuario/listar_usuario
-    url(r'^listar_usuarios/$', views.listar_usuario, name='listar_usuarios')
+    url(r'^listar_usuarios/$', views.listar_usuario, name='listar_usuarios'),
 
+    url(r'^listar_detalle_usuario/(?P<usuario_id>\d+)/$', views.listar_detalle_Usuario, name='listar_detalle_usuario')
 ]

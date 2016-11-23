@@ -101,3 +101,8 @@ def listar_usuario(request):
 
 
     return render(request, 'usuario/listar_usuarios.html', {'lista_usuarios': lista_usuarios})
+
+@login_required
+def listar_detalle_Usuario(request,usuario_id):
+    lista_user = User.objects.get(pk=usuario_id)
+    return render(request, 'usuario/listar_detalle_usuario.html', {'lista_user': lista_user})

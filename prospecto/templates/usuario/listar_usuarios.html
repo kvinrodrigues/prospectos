@@ -144,7 +144,8 @@
                                         <td><a href="{% url 'usuarios:eliminar_usuario' user.id %}"
                                         onClick="return confirm('Desea eliminar el usuario: {{user.username}}?')"><span
                                         class="glyphicon glyphicon-remove"></span></a></td>
-                                        <td><a href="#">Ver</a></td>
+                                        <td><a href="{%url  'usuarios:listar_detalle_usuario' user.id %}"><button type="button" class="btn btn-default">Ver</button></a>
+
 
 
                                     </tr>
