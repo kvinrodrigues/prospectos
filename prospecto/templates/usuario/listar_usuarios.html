@@ -106,6 +106,7 @@
                                 <li><a href="{%url 'vendedor:listar_vendedores'%}">Vendedores</a></li>
                                 <li><a href="{%url 'supervisor:listar_supervisores'%}">Supervisores</a></li>
                                 <li><a href="{%url 'target:listar_targets'%}">Target</a></li>
+
                                 <li><a href="{%url 'campanha:listar_campanhas'%}">Campañas</a></li>
                             </ul>
                         </div>
@@ -128,7 +129,7 @@
                                     <th><b>E-mail</b></th>
                                     <th><b>Modificar</b></th>
                                     <th><b>Eliminar</b></th>
-                                    <th><b>Detalles</b></th>
+                                    <th><b>Ver Detalle</b></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -143,8 +144,7 @@
                                         <td><a href="{% url 'usuarios:eliminar_usuario' user.id %}"
                                         onClick="return confirm('Desea eliminar el usuario: {{user.username}}?')"><span
                                         class="glyphicon glyphicon-remove"></span></a></td>
-                                        <td><a href="{%url  'usuarios:listar_detalle_usuario' user.id%}"><center><button type="button" class="btn btn-default">Ver</button></center></a></td>
-
+                                        <td><a href="#">Ver</a></td>
 
 
                                     </tr>
