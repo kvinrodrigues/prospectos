@@ -112,6 +112,8 @@
                     </nav>
                     <div class="col-md-1">
                         <a href="{%url 'usuarios:crear_usuarios'%}"><center><button type="button" class="btn btn-default">Nuevo</button></center></a><br><br>
+                        <a href="{%url 'usuarios:listar_usuarios'%}"><center><button type="button" class="btn btn-default">Reporte</button></center></a><br><br>
+
                     </div>
 
                     <div class="col-md-9">
@@ -120,39 +122,18 @@
                                <input id="searchTerm" type="text" onkeyup="doSearch(0)" size="20"/>
                                 <input id="searchTerm1" type="text" onkeyup="doSearch1(1)"/>
                         </form>
+                    <table id="datos" class="table table-hover">
+                        <thead>
 
-                        <table id="datos" class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th><b>Usuario</b></th>
-                                    <th><b>E-mail</b></th>
-                                    <th><b>Modificar</b></th>
-                                    <th><b>Eliminar</b></th>
-                                    <th><b>Detalles</b></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for user in lista_usuarios %}
-                                    <tr>
-                                        <td>{{user.username}}</td>
-                                        <td>{{user.email}}</td>
+                                <tr><th>Usuario</th>             <td>{{lista_user.username}}</td></tr>
+                                <tr><th>Email</th>               <td>{{lista_user.email}}</td></tr>
+                                <tr><th>Nombre</th>              <td>{{lista_user.first_name}}</td></tr>
+                                <tr><th>Apellido</th>            <td>{{lista_user.last_name}}</td></tr>
 
-                                        <td><a href="{% url 'usuarios:modificar_usuarios' user.id %}"><span
-                                        class="glyphicon glyphicon-pencil"></span></a></td>
-
-                                        <td><a href="{% url 'usuarios:eliminar_usuario' user.id %}"
-                                        onClick="return confirm('Desea eliminar el usuario: {{user.username}}?')"><span
-                                        class="glyphicon glyphicon-remove"></span></a></td>
-                                        <td><a href="{%url  'usuarios:listar_detalle_usuario' user.id%}"><center><button type="button" class="btn btn-default">Ver</button></center></a></td>
+                        </thead>
 
 
-
-                                    </tr>
-                                {% endfor %}
-
-                            </tbody>
-                        </table>
-
+                    </table>
                         <div class="pagination" >
                             <span class="step-links">
                                 {% if lista_usuarios.has_previous %}

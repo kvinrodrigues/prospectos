@@ -92,18 +92,14 @@
 
                     <table id="datos" class="table table-hover">
                         <thead>
-                                <th>Nombre</th>                 <td> {{ cam.nombreCampanha }} </td></tr>
+                                <tr><th>Nombre de la Camapanha</th>          <td> {{ cam.nombreCampanha }} </td></tr>
+                                <tr><th>Descripcion</th>                        <td>{{ cam.descripcionCampanha}} </td></tr>
+                                <tr><th>Fecha de Inicio</th>                    <td>{{ cam.fecha_inicio_Campanha}} </td></tr>
+                                <tr><th>Fecha de Finalizacion</th>              <td>{{ cam.fecha_fin_Campanha}} </td></tr>
+                                <tr><th>Vendedores</th>                       <tr>  {% for cmp in cam.vende.all %}<td>{{ cmp }}</td> </tr>{% endfor %} </tr>
+                                <tr><th>Articulos</th>                       <tr> {% for cmp in cam.arti.all %}<td>{{ cmp }}</td> </tr>{% endfor %}
 
-                                <tr><th>Vendedor</th>               {% for cmp in cam.vende.all %}<td>{{ cmp }}</td> {% endfor %} </td></tr>
-                                <tr><th>Articulos</th>              {% for cmp in cam.arti.all %}<td>{{ cmp }}</td><br> {% endfor %} </td></tr>
-                                <tr><th>Vendedor</th>           <td>{{ cam.vende }} </td></tr>
-                                <tr><th>Articulos</th>          <td>{{ cam.arti}} </td></tr>
-                                <tr><th>Descripcion</th>          <td>{{ cam.descripcionCampanha}} </td></tr>
-                                <tr><th>Fecha de Inicio</th>          <td>{{ cam.fecha_inicio_Campanha}} </td></tr>
-                                <tr><th>Fecha de Finalizacion</th>          <td>{{ cam.fecha_fin_Campanha}} </td></tr>
                         </thead>
-
-
                     </table>
                     <div class="pagination" >
                         <span class="step-links">
