@@ -6,113 +6,7 @@
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-            <script language="javascript">
-                //Varias funciones para recoger el id(getElementid solo recoge uno), seria más óptimo simplificando en una sola función
-                function doSearch(c)
-                {
-                    this.c=c;
-                    var tableReg = document.getElementById('datos');
-                    var searchText = document.getElementById('searchTerm').value.toLowerCase();
-                    var cellsOfRow="";
-                    var found=false;
-                    var compareWith="";
-                    // Recorremos todas las filas con contenido de la tabla
-                    for (var i = 1; i < tableReg.rows.length; i++)
-                    {
-                        cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
-                        found = false;
-                        // Recorremos todas las celdas
-                        var j = c;
 
-                            compareWith = cellsOfRow[j].innerHTML.toLowerCase();
-                            // Buscamos el texto en el contenido de la celda
-                            if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
-                            {
-                                found = true;
-                            }
-                        if(found)
-                        {
-                            tableReg.rows[i].style.display = '';
-                        } else {
-                            // si no ha encontrado ninguna coincidencia, esconde la
-                            // fila de la tabla
-                            tableReg.rows[i].style.display = 'none';
-                        }
-                    }
-                }
-
-                function doSearch1(c)
-                {
-                    this.c=c;
-                    var tableReg = document.getElementById('datos');
-                    var searchText = document.getElementById('searchTerm1').value.toLowerCase();
-                    var cellsOfRow="";
-                    var found=false;
-                    var compareWith="";
-                    // Recorremos todas las filas con contenido de la tabla
-                    for (var i = 1; i < tableReg.rows.length; i++)
-                    {
-                        cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
-                        found = false;
-                        // Recorremos todas las celdas
-                        var j = c;
-
-                            compareWith = cellsOfRow[j].innerHTML.toLowerCase();
-                            // Buscamos el texto en el contenido de la celda
-                            if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
-                            {
-                                found = true;
-                            }
-                        if(found)
-                        {
-                            tableReg.rows[i].style.display = '';
-                        } else {
-                            // si no ha encontrado ninguna coincidencia, esconde la
-                            // fila de la tabla
-                            tableReg.rows[i].style.display = 'none';
-                        }
-                    }
-                }
-
-                function doSearch2(c)
-                {
-                    this.c=c;
-                    var tableReg = document.getElementById('datos');
-                    var searchText = document.getElementById('searchTerm2').value.toLowerCase();
-                    var cellsOfRow="";
-                    var found=false;
-                    var compareWith="";
-                    // Recorremos todas las filas con contenido de la tabla
-                    for (var i = 1; i < tableReg.rows.length; i++)
-                    {
-                        cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
-                        found = false;
-                        // Recorremos todas las celdas
-                        var j = c;
-
-                            compareWith = cellsOfRow[j].innerHTML.toLowerCase();
-                            // Buscamos el texto en el contenido de la celda
-                            if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
-                            {
-                                found = true;
-                            }
-                        if(found)
-                        {
-                            tableReg.rows[i].style.display = '';
-                        } else {
-                            // si no ha encontrado ninguna coincidencia, esconde la
-                            // fila de la tabla
-                            tableReg.rows[i].style.display = 'none';
-                        }
-                    }
-                }
-            </script>
-
-            <style>
-                #datos	{border:1px solid #ccc;padding:10px;}
-                #datos tr:nth-child(even) {background:#ccc;}
-                #datos td {padding:5px;}
-            </style>
        </head>
        <body>
             <div class="row">
@@ -131,7 +25,6 @@
                                     <li><a href="{% url 'inicio:salir' %}">Logout</a></li>
                                 </ul>
                             </li>
-
                         </div>
 
                         <ul class="nav navbar-nav">
@@ -140,7 +33,6 @@
                             <li><a href="{%url 'vendedor:listar_vendedores'%}">Vendedores</a></li>
                             <li><a href="{%url 'supervisor:listar_supervisores'%}">Supervisores</a></li>
                             <li><a href="{%url 'target:listar_targets'%}">Target</a></li>
-
                             <li><a href="{%url 'campanha:listar_campanhas'%}">Campañas</a></li>
                         </ul>
                     </div>
@@ -152,14 +44,7 @@
 
                 <div class="col-md-9">
                     <h2>Targets</h2>
-                    <form>
-                           <input id="searchTerm" type="text" onkeyup="doSearch(0)" size="10" />
-                           <input id="searchTerm1" type="text" onkeyup="doSearch1(1)" size="20"/>
-                            <input id="searchTerm2" type="text" onkeyup="doSearch2(2)" size="10"/>
-
-                    </form>
-
-                    <table id="datos" class="table table-hover">
+                    <table  class="table table-hover">
                         <thead>
                                 <tr><th>Nombre</th>         <td> {{ target.nombreTarget  }}   </td></tr>
                                 <tr><th>CI: </th>           <td> {{ target.DNITarget  }}   </td></tr>
@@ -171,9 +56,6 @@
                                 <tr><th>Estado</th>         <td> {{ target.estadoTarget }}    </td></tr>
                         </thead>
                     </table>
-
-
-
 
                 </div>
             </div>
