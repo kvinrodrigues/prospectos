@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'apps.vendedor',
     'apps.inicio',
     'apps.auditoria',
+    'apps.ventas',
     'bootstrap3',
 
 

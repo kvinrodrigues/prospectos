@@ -74,8 +74,8 @@
                             <li><a href="{%url 'vendedor:listar_vendedores'%}">Vendedores</a></li>
                             <li><a href="{%url 'supervisor:listar_supervisores'%}">Supervisores</a></li>
                             <li><a href="{%url 'target:listar_targets'%}">Target</a></li>
-
                             <li><a href="{%url 'campanha:listar_campanhas'%}">Campañas</a></li>
+                            <li><a href="{%url  'ventas:gestion_de_ventas'%}">Gestion de Ventas</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -104,7 +104,6 @@
                             {% for cam in cam %}
                                 <tr>
                                     <td> {{ cam.nombreCampanha }}     </td>
-
                                     <td><a href="{% url 'campanha:modificar_campanha' cam.id %}">
                                         <span class="glyphicon glyphicon-pencil"></span></a></td>
                                     <td>

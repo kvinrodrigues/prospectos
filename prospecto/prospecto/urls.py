@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^target_contact/', include('apps.target_contact.urls', namespace='target_contact')),
     url(r'^vendedor/', include('apps.vendedor.urls', namespace='vendedor')),
     url(r'^auditoria/', include('apps.auditoria.urls', namespace='auditoria')),
+    url(r'^ventas/', include('apps.ventas.urls', namespace='ventas')),
 
 
 

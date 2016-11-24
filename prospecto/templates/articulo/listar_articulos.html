@@ -78,8 +78,8 @@
                         <li><a href="{%url 'vendedor:listar_vendedores'%}">Vendedores</a></li>
                         <li><a href="{%url 'supervisor:listar_supervisores'%}">Supervisores</a></li>
                         <li><a href="{%url 'target:listar_targets'%}">Target</a></li>
-
                         <li><a href="{%url 'campanha:listar_campanhas'%}">Campañas</a></li>
+                        <li><a href="{%url  'ventas:gestion_de_ventas'%}">Gestion de Ventas</a></li>
                     </ul>
                 </div>
             </nav>
@@ -118,7 +118,7 @@
                                         <span class="glyphicon glyphicon-remove"></span>
                                     </a>
                                 </td>
-                                <td><a href="{%url  'articulo:listar_detalleart' arti.id%}"><center><button type="button" class="btn btn-default">Ver</button></center></a></td>
+                                <td><a href="{%url  'articulo:listar_detalleart' arti.id%}"><button type="button" class="btn btn-default">Ver</button></a></td>
                             </tr>
                         {% endfor %}
 
@@ -143,7 +143,7 @@
             </div>
 
         </div>
-
+        <!-- Script para ocultar secciones de la pagina -->
          <script language="javascript">
             function oculta(id){
 

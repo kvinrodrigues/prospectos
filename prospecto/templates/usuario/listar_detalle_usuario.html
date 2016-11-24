@@ -6,79 +6,7 @@
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-            <script language="javascript">
-                function doSearch(c)
-                {
-                    this.c=c;
-                    var tableReg = document.getElementById('datos');
-                    var searchText = document.getElementById('searchTerm').value.toLowerCase();
-                    var cellsOfRow="";
-                    var found=false;
-                    var compareWith="";
-                    // Recorremos todas las filas con contenido de la tabla
-                    for (var i = 1; i < tableReg.rows.length; i++)
-                    {
-                        cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
-                        found = false;
-                        // Recorremos todas las celdas
-                        var j = c;
 
-                            compareWith = cellsOfRow[j].innerHTML.toLowerCase();
-                            // Buscamos el texto en el contenido de la celda
-                            if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
-                            {
-                                found = true;
-                            }
-                        if(found)
-                        {
-                            tableReg.rows[i].style.display = '';
-                        } else {
-                            // si no ha encontrado ninguna coincidencia, esconde la
-                            // fila de la tabla
-                            tableReg.rows[i].style.display = 'none';
-                        }
-                    }
-                }
-
-                function doSearch1(c)
-                {
-                    this.c=c;
-                    var tableReg = document.getElementById('datos');
-                    var searchText = document.getElementById('searchTerm1').value.toLowerCase();
-                    var cellsOfRow="";
-                    var found=false;
-                    var compareWith="";
-                    // Recorremos todas las filas con contenido de la tabla
-                    for (var i = 1; i < tableReg.rows.length; i++)
-                    {
-                        cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
-                        found = false;
-                        // Recorremos todas las celdas
-                        var j = c;
-
-                            compareWith = cellsOfRow[j].innerHTML.toLowerCase();
-                            // Buscamos el texto en el contenido de la celda
-                            if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
-                            {
-                                found = true;
-                            }
-                        if(found)
-                        {
-                            tableReg.rows[i].style.display = '';
-                        } else {
-                            // si no ha encontrado ninguna coincidencia, esconde la
-                            // fila de la tabla
-                            tableReg.rows[i].style.display = 'none';
-                        }
-                    }
-                }
-            </script>
-
-            <style>
-                #datos	{border:1px solid #ccc;padding:10px;}
-                #datos tr:nth-child(even) {background:#ccc;}
-                #datos td {padding:5px;}
-            </style>
             </head>
        <body>
                 <div class="row">
@@ -106,8 +34,8 @@
                                 <li><a href="{%url 'vendedor:listar_vendedores'%}">Vendedores</a></li>
                                 <li><a href="{%url 'supervisor:listar_supervisores'%}">Supervisores</a></li>
                                 <li><a href="{%url 'target:listar_targets'%}">Target</a></li>
-
                                 <li><a href="{%url 'campanha:listar_campanhas'%}">Campañas</a></li>
+                                <li><a href="{%url  'ventas:gestion_de_ventas'%}">Gestion de Ventas</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -136,23 +64,6 @@
 
 
                     </table>
-
-                        <div class="pagination" >
-                            <span class="step-links">
-                                {% if lista_usuarios.has_previous %}
-                                    <a href="?page={{ lista_usuarios.previous_page_number }}">Anterior</a>
-                                {% endif %}
-
-                                <span class="current">
-                                    Page {{ lista_usuarios.number }} of {{ lista_usuarios.paginator.num_pages }}.
-                                </span>
-
-                                {% if lista_usuarios.has_next %}
-                                    <a href="?page={{ art.next_page_number }}">Siguiente</a>
-                                {% endif %}
-                            </span>
-                        </div>
-
                     </div>
                 </div>
 

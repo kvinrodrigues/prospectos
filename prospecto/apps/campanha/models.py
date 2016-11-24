@@ -1,4 +1,6 @@
 from django.db import models
+
+from apps import ventas
 from apps.articulo.models import Articulo
 from apps.vendedor.models import Vendedor
 

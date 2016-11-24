@@ -1,11 +1,12 @@
 <html>
     <head>
-                <title>Campanhas</title>
+                <title>Ventas</title>
                 <meta charset="utf-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     </head>
     <body>
             <div class="row">
@@ -38,49 +39,64 @@
                         </ul>
                     </div>
                 </nav>
-                <div class="col-md-1">
-                    <a href="{%url 'campanha:crear_campanha'%}"><center><button type="button" class="btn btn-default">Nuevo</button></center></a><br>
-                    <a href="{%url 'campanha:listar_campanhas'%}"><center><button type="button" class="btn btn-default">Reporte</button></center></a>
+
+
+<div class="jumbotron text-center">
+  <h1>Gestion de Ventas</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Campanhas</h3>
+         {% for cam in listaCam %}
+                    <td> {{ cam.nombreCampanha }}<br><br> </td>
+           {% endfor %}
+        <div class="pagination" >
+                    <span class="step-links">
+                        {% if listaCam.has_previous %}
+                            <a href="?page={{ listaCam.previous_page_number }}"><--</a>
+                        {% endif %}
+
+                        <span class="current">
+                            Page {{ listaCam.number }} of {{ listaCam.paginator.num_pages }}.
+                        </span>
+
+                        {% if listaCam.has_next %}
+                            <a href="?page={{ listaCam.next_page_number }}">--></a>
+                        {% endif %}
+                    </span>
                 </div>
+      <p><a href="{% url 'campanha:listar_campanhas' %}"></a></p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Contacto</h3>
 
-                <div class="col-md-9">
-                    <h2>Campanhas</h2>
+    </div>
+    <div class="col-sm-4">
+      <h3>Targets</h3>
+                {% for target in Tg %}
+                        <td> {{ target.nombreTarget  }} <br><br>  </td>
+                {% endfor %}
+         <div class="pagination" >
+                    <span class="step-links">
+                        {% if Tg.has_previous %}
+                            <a href="?page1={{ Tg.previous_page_number }}"><--</a>
+                        {% endif %}
 
-                    <table id="datos" class="table table-hover">
-                        <thead>
-                                <tr><th>Nombre de la Camapanha</th>          <td> {{ cam.nombreCampanha }} </td></tr>
-                                <tr><th>Descripcion</th>                        <td>{{ cam.descripcionCampanha}} </td></tr>
-                                <tr><th>Fecha de Inicio</th>                    <td>{{ cam.fecha_inicio_Campanha}} </td></tr>
-                                <tr><th>Fecha de Finalizacion</th>              <td>{{ cam.fecha_fin_Campanha}} </td></tr>
-                                <tr><th>Vendedores</th><td>&#160;</td></tr>
-                                {% for tgt in cam.vende.all %}
-                                    <tr>
-                                        <td></td>
-                                        <td>{{ tgt }}</td>
-                                    </tr>
-                               {% endfor %}
-                                <tr><th>Articulos</th><td>&#160;</td></tr>
-                                {% for tgt in cam.arti.all %}
-                                    <tr>
-                                        <td></td>
-                                        <td>{{ tgt }}</td>
-                                    </tr>
-                               {% endfor %}
+                        <span class="current">
+                            Page {{ Tg.number }} of {{ Tg.paginator.num_pages }}.
+                        </span>
 
-
-                        </thead>
-
-                        </thead>
-                    </table>
-
-
-
-
-
-
+                        {% if Tg.has_next %}
+                            <a href="?page1={{ Tg.next_page_number }}">--></a>
+                        {% endif %}
+                    </span>
                 </div>
-            </div>
-    </body>
-
-
+    </div>
+  </div>
+</div>
+</div>
+</body>
 </html>
+
