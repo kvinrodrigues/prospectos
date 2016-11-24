@@ -17,8 +17,6 @@
                         <tr>
                             <th>Contacto</th>
                             <th>Articulos</th>
-                            <th>Vendedor</th>
-
                             <th>Modificar</th>
                             <th>Eliminar</th>
                         </tr>
@@ -28,7 +26,6 @@
                             <tr>
                                 <td>cd  {{ con.Objetivo }}     </td>
                                 <td> {{ con.Articulo }}     </td>
-                                <td> {{ con.Vendedor }}     </td>
                                 <td><a href="{% url 'target_contact:modificar_contacto' con.id %}">
                                     <span class="glyphicon glyphicon-pencil"></span></a></td>
                                 <td>

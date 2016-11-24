@@ -9,13 +9,12 @@
 <body>
 
 {% block content %}
-
-
 {% load bootstrap3 %}
-{% bootstrap_form form %}
 <form action="{% url 'target_contact:crear_contacto' %}" method="post" class="form">
-    {% csrf_token %}
 
+
+{% bootstrap_form form %}
+    {% csrf_token %}
     {% buttons %}
         <button type="submit" class="btn btn-primary">
             {% bootstrap_icon "star" %} Submit
